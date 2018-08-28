@@ -6,9 +6,10 @@ Authors@R: c(
     person("Gideon", "Zamba", role = "aut"),
     person("Joseph", "Cavanaugh", role = "aut")
     )
-Description: This package provides functions to analyze count time series with excess zeros. 
-    Two types of statistical models are supported: Markov regression (Yang et al., 2013) and 
-    state-space models (Yang et al., 2015). They are also known as observation-driven and 
+Description: Analyze count time series with excess zeros. 
+    Two types of statistical models are supported: Markov regression by Yang, Zamba, Cavanaugh 
+    (2013) <doi:10.1016/j.stamet.2013.02.001> and state-space models by Yang, Cavanaugh, Zamba 
+    (2015) <doi:10.1177/1471082X14535530>. They are also known as observation-driven and 
     parameter-driven models respectively in the time series literature. The functions used for 
     Markov regression or observation-driven models can also be used to fit ordinary regression models 
     with independent data under the zero-inflated Poisson (ZIP) or zero-inflated negative binomial (ZINB) 
