@@ -1,5 +1,9 @@
 # Overview
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ZIM)](https://CRAN.R-project.org/package=ZIM)
+[![CRAN RStudio mirror overall downloads](http://cranlogs.r-pkg.org/badges/grand-total/ZIM)](http://www.r-pkg.org/pkg/ZIM)
+![CRAN Downloads month](http://cranlogs.r-pkg.org/badges/ZIM)
+
 __Zero-Inflated Models (ZIM) for Count Time Series with Excess Zeros__
 
 Analyze count time series with excess zeros. Two types of statistical models are supported: Markov regression by Yang et al. (2013) and state-space models by Yang et al. (2015). They are also known as observation-driven and parameter-driven models respectively in the time series literature. The functions used for Markov regression or observation-driven models can also be used to fit ordinary regression models with independent data under the zero-inflated Poisson (ZIP) or zero-inflated negative binomial (ZINB) assumption. Besides, the package contains some miscellaneous functions to compute density, distribution, quantile, and generate random numbers from ZIP and ZINB distributions.
