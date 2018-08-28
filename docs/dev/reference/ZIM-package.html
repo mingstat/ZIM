@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Trace Plots from DZIM — dzim.plot • ZIM</title>
+<title>Zero-Inflated Models for Count Time Series with Excess Zeros — ZIM-package • ZIM</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,12 +30,12 @@
 
 
 
-<meta property="og:title" content="Trace Plots from DZIM — dzim.plot" />
+<meta property="og:title" content="Zero-Inflated Models for Count Time Series with Excess Zeros — ZIM-package" />
 
-<meta property="og:description" content="Function to display trace plots from a dynamic zero-inflated model." />
+<meta property="og:description" content="Fits observation-driven and parameter-driven models for count time series with excess zeros." />
 <meta name="twitter:card" content="summary" />
 
-
+<meta name="robots" content="noindex">
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.1.0</span>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development package">1.1.0.1808</span>
       </span>
     </div>
 
@@ -98,47 +98,52 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Trace Plots from DZIM</h1>
-    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/dzim.R'><code>R/dzim.R</code></a></small>
-    <div class="hidden name"><code>dzim.plot.Rd</code></div>
+    <h1>Zero-Inflated Models for Count Time Series with Excess Zeros</h1>
+    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/package.R'><code>R/package.R</code></a></small>
+    <div class="hidden name"><code>ZIM-package.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Function to display trace plots from a dynamic zero-inflated model.</p>
+    <p>Fits observation-driven and parameter-driven models for count time series with excess zeros.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dzim.plot</span>(<span class='no'>object</span>, <span class='kw'>k.inv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>sigma.sq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+        
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The package <code>ZIM</code> contains functions to fit statistical models for count time series 
+with excess zeros (Yang et al., 2013, 2015). The main function for fitting observation-driven models 
+is <code><a href='zim.html'>zim</a></code>, and the main function for fitting parameter-driven models is <code><a href='dzim.html'>dzim</a></code>.</p>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>object</th>
-      <td><p>objective from <code><a href='dzim.html'>dzim</a></code> or <code><a href='dzim.fit.html'>dzim.fit</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>k.inv</th>
-      <td><p>logical; indicating whether an inverse transformation is needed for the dispersion parameter.</p></td>
-    </tr>
-    <tr>
-      <th>sigma.sq</th>
-      <td><p>logical; indicating whether a square transformation is needed for the standard deviation parameter.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>additional arguments.</p></td>
-    </tr>
-    </table>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>The observation-driven models for zero-inflated count time series can also be fit using the function 
+<code><a href='http://www.rdocumentation.org/packages/pscl/topics/zeroinfl'>zeroinfl</a></code> from the <code>pscl</code> package (Zeileis et al., 2008). 
+Fitting parameter-driven models is based on sequential Monte Carlo (SMC) methods, which are
+computer intensive and could take several hours to estimate the model parameters.</p>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Yang, M., Cavanaugh, J. E., and Zamba, G. K. D. (2015). State-space models for count time series
+with excess zeros. <em>Statistical Modelling</em>, <b>15</b>:70-90 <br /> <br />
+Yang, M., Zamba, G. K. D., and Cavanaugh, J. E. (2013). Markov regression models for count time series
+with excess zeros: A partial likelihood approach. <em>Statistical Methodology</em>, <b>14</b>:26-38. <br /> <br />
+Zeileis, A., Kleiber, C., and Jackman, S. (2008). Regression models for count data in <code>R</code>.  
+<em>Journal of Statistical Software</em>, <b>27</b>(8).</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#note">Note</a></li>
+
+      <li><a href="#references">References</a></li>
+          </ul>
 
   </div>
 </div>

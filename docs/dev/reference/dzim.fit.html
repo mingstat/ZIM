@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Example: Injury Series from Occupational Health — injury • ZIM</title>
+<title>Fitter Function for Dynamic Zero-Inflated Models — dzim.fit • ZIM</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,12 +30,13 @@
 
 
 
-<meta property="og:title" content="Example: Injury Series from Occupational Health — injury" />
+<meta property="og:title" content="Fitter Function for Dynamic Zero-Inflated Models — dzim.fit" />
 
-<meta property="og:description" content="Monthly number of injuries in hospitals from July 1988 to October 1995." />
+<meta property="og:description" content="dzim.fit is the basic computing engine called by dzim used to fit 
+dynamic zero-inflated models. This should usually not be used directly unless by experienced users." />
 <meta name="twitter:card" content="summary" />
 
-
+<meta name="robots" content="noindex">
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -61,7 +62,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.1.0</span>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development package">1.1.0.1808</span>
       </span>
     </div>
 
@@ -98,42 +99,63 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Example: Injury Series from Occupational Health</h1>
-    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/package.R'><code>R/package.R</code></a></small>
-    <div class="hidden name"><code>injury.Rd</code></div>
+    <h1>Fitter Function for Dynamic Zero-Inflated Models</h1>
+    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/dzim.R'><code>R/dzim.R</code></a></small>
+    <div class="hidden name"><code>dzim.fit.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Monthly number of injuries in hospitals from July 1988 to October 1995.</p>
+    <p><code>dzim.fit</code> is the basic computing engine called by <code><a href='dzim.html'>dzim</a></code> used to fit 
+dynamic zero-inflated models. This should usually <em>not</em> be used directly unless by experienced users.</p>
     
     </div>
 
-        
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p>Numbers from Figure 1 of Yau et al. (2004).</p>
+    <pre class="usage"><span class='fu'>dzim.fit</span>(<span class='no'>y</span>, <span class='no'>X</span>, <span class='kw'>offset</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>0</span>, <span class='no'>n</span>), <span class='kw'>control</span> <span class='kw'>=</span> <span class='fu'><a href='dzim.control.html'>dzim.control</a></span>(<span class='no'>...</span>), <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>y</th>
+      <td><p>response variable.</p></td>
+    </tr>
+    <tr>
+      <th>X</th>
+      <td><p>design matrix.</p></td>
+    </tr>
+    <tr>
+      <th>offset</th>
+      <td><p>offset variable.</p></td>
+    </tr>
+    <tr>
+      <th>control</th>
+      <td><p>control arguments.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>additional arguments.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Yau, K. K. W., Lee, A. H. and Carrivick, P. J. W. (2004). Modeling zero-inflated count series with 
-application to occupational health. <em>Computer Methods and Programs in Biomedicine</em>, <b>74</b>, 47-52.</p>
+    <div class='dont-index'><p><code><a href='dzim.html'>dzim</a></code>,
+<code><a href='dzim.control.html'>dzim.control</a></code>, 
+<code><a href='dzim.filter.html'>dzim.filter</a></code>, 
+<code><a href='dzim.smooth.html'>dzim.smooth</a></code>,
+<code><a href='dzim.sim.html'>dzim.sim</a></code>,
+<code><a href='dzim.plot.html'>dzim.plot</a></code></p></div>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>data</span>(<span class='no'>injury</span>)
-<span class='fu'>plot</span>(<span class='no'>injury</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"o"</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>xaxt</span> <span class='kw'>=</span> <span class='st'>"n"</span>, <span class='kw'>yaxt</span> <span class='kw'>=</span> <span class='st'>"n"</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"Injury Count"</span>)</div><div class='input'>  <span class='fu'>axis</span>(<span class='kw'>side</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>at</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>1</span>, <span class='fl'>96</span>, <span class='fl'>8</span>))</div><div class='input'>  <span class='fu'>axis</span>(<span class='kw'>side</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>at</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>9</span>)</div><div class='input'>  <span class='fu'>abline</span>(<span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>57</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='input'>  <span class='fu'>mtext</span>(<span class='st'>"Pre-intervention"</span>,  <span class='kw'>line</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>at</span> <span class='kw'>=</span> <span class='fl'>25</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)</div><div class='input'>  <span class='fu'>mtext</span>(<span class='st'>"Post-intervention"</span>, <span class='kw'>line</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>at</span> <span class='kw'>=</span> <span class='fl'>80</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)</div><div class='img'><img src='injury-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#source">Source</a></li>
-
-      <li><a href="#references">References</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

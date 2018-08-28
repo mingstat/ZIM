@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fitter Function for Dynamic Zero-Inflated Models — dzim.fit • ZIM</title>
+<title>Fitter Function for Zero-Inflated Models — zim.fit • ZIM</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,13 +30,13 @@
 
 
 
-<meta property="og:title" content="Fitter Function for Dynamic Zero-Inflated Models — dzim.fit" />
+<meta property="og:title" content="Fitter Function for Zero-Inflated Models — zim.fit" />
 
-<meta property="og:description" content="dzim.fit is the basic computing engine called by dzim used to fit 
-dynamic zero-inflated models. This should usually not be used directly unless by experienced users." />
+<meta property="og:description" content="zim.fit is the basic computing engine called by zim used to fit 
+zero-inflated models. This should usually not be used directly unless by experienced users." />
 <meta name="twitter:card" content="summary" />
 
-
+<meta name="robots" content="noindex">
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -62,7 +62,7 @@ dynamic zero-inflated models. This should usually not be used directly unless by
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.1.0</span>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development package">1.1.0.1808</span>
       </span>
     </div>
 
@@ -99,19 +99,20 @@ dynamic zero-inflated models. This should usually not be used directly unless by
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fitter Function for Dynamic Zero-Inflated Models</h1>
-    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/dzim.R'><code>R/dzim.R</code></a></small>
-    <div class="hidden name"><code>dzim.fit.Rd</code></div>
+    <h1>Fitter Function for Zero-Inflated Models</h1>
+    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/zim.R'><code>R/zim.R</code></a></small>
+    <div class="hidden name"><code>zim.fit.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p><code>dzim.fit</code> is the basic computing engine called by <code><a href='dzim.html'>dzim</a></code> used to fit 
-dynamic zero-inflated models. This should usually <em>not</em> be used directly unless by experienced users.</p>
+    <p><code>zim.fit</code> is the basic computing engine called by <code><a href='zim.html'>zim</a></code> used to fit 
+zero-inflated models. This should usually <em>not</em> be used directly unless by experienced users.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dzim.fit</span>(<span class='no'>y</span>, <span class='no'>X</span>, <span class='kw'>offset</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>0</span>, <span class='no'>n</span>), <span class='kw'>control</span> <span class='kw'>=</span> <span class='fu'><a href='dzim.control.html'>dzim.control</a></span>(<span class='no'>...</span>), <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>zim.fit</span>(<span class='no'>y</span>, <span class='no'>X</span>, <span class='no'>Z</span>, <span class='kw'>weights</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>1</span>, <span class='no'>nobs</span>), <span class='kw'>offset</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>0</span>, <span class='no'>nobs</span>),
+  <span class='kw'>control</span> <span class='kw'>=</span> <span class='fu'><a href='zim.control.html'>zim.control</a></span>(<span class='no'>...</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -122,30 +123,33 @@ dynamic zero-inflated models. This should usually <em>not</em> be used directly 
     </tr>
     <tr>
       <th>X</th>
-      <td><p>design matrix.</p></td>
+      <td><p>design matrix for log-linear part.</p></td>
+    </tr>
+    <tr>
+      <th>Z</th>
+      <td><p>design matrix for logistic part.</p></td>
+    </tr>
+    <tr>
+      <th>weights</th>
+      <td><p>an optional vector of 'prior weights' to be used in the fitting process.</p></td>
     </tr>
     <tr>
       <th>offset</th>
-      <td><p>offset variable.</p></td>
+      <td><p>offset variable</p></td>
     </tr>
     <tr>
       <th>control</th>
-      <td><p>control arguments.</p></td>
+      <td><p>control arguments from <code><a href='zim.control.html'>zim.control</a></code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>additional arguments.</p></td>
+      <td><p>additional argumetns.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='dzim.html'>dzim</a></code>,
-<code><a href='dzim.control.html'>dzim.control</a></code>, 
-<code><a href='dzim.filter.html'>dzim.filter</a></code>, 
-<code><a href='dzim.smooth.html'>dzim.smooth</a></code>,
-<code><a href='dzim.sim.html'>dzim.sim</a></code>,
-<code><a href='dzim.plot.html'>dzim.plot</a></code></p></div>
+    <div class='dont-index'><p><code><a href='zim.html'>zim</a></code>, <code><a href='zim.control.html'>zim.control</a></code></p></div>
     
 
   </div>
