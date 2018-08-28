@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function to Compute P-value. — pvalue • ZIM</title>
+<title>Particle Smoothing for DZIM — dzim.smooth • ZIM</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,12 +30,12 @@
 
 
 
-<meta property="og:title" content="Function to Compute P-value. — pvalue" />
+<meta property="og:title" content="Particle Smoothing for DZIM — dzim.smooth" />
 
-<meta property="og:description" content="Function to compute p-value based on a t-statistic." />
+<meta property="og:description" content="Function to implement the particle smoothing method proposed by Gordsill et al. (2004)." />
 <meta name="twitter:card" content="summary" />
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development package">1.1.0.1808</span>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased package">1.1.0.1808</span>
       </span>
     </div>
 
@@ -98,47 +98,69 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Function to Compute P-value.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/misc.R'><code>R/misc.R</code></a></small>
-    <div class="hidden name"><code>pvalue.Rd</code></div>
+    <h1>Particle Smoothing for DZIM</h1>
+    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/dzim.R'><code>R/dzim.R</code></a></small>
+    <div class="hidden name"><code>dzim.smooth.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Function to compute p-value based on a t-statistic.</p>
+    <p>Function to implement the particle smoothing method proposed by Gordsill et al. (2004).</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>pvalue</span>(<span class='no'>t</span>, <span class='kw'>df</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"two.sided"</span>, <span class='st'>"less"</span>, <span class='st'>"greater"</span>))</pre>
+    <pre class="usage"><span class='fu'>dzim.smooth</span>(<span class='no'>y</span>, <span class='no'>X</span>, <span class='no'>w</span>, <span class='no'>para</span>, <span class='no'>control</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>t</th>
-      <td><p>t-statistic.</p></td>
+      <th>y</th>
+      <td><p>response variable.</p></td>
     </tr>
     <tr>
-      <th>df</th>
-      <td><p>degree of freedoms.</p></td>
+      <th>X</th>
+      <td><p>design matrix.</p></td>
     </tr>
     <tr>
-      <th>alternative</th>
-      <td><p>type of alternatives.</p></td>
+      <th>w</th>
+      <td><p><code>log(w)</code> is used as an offset variable in the linear predictor.</p></td>
+    </tr>
+    <tr>
+      <th>para</th>
+      <td><p>model parameters.</p></td>
+    </tr>
+    <tr>
+      <th>control</th>
+      <td><p>control arguments.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>pvalue</span>(<span class='fl'>1.96</span>, <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='st'>"greater"</span>)</div><div class='output co'>#&gt; [1] 0.0249979</div></pre>
+    <p>Gordsill, S. J., Doucet, A., and West, M. (2004). Monte Carlo smoothing for nonlinear time series. 
+<em>Journal of the American Statistical Association</em>, <b>99</b>, 156-168.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='dzim.html'>dzim</a></code>,
+<code><a href='dzim.fit.html'>dzim.fit</a></code>, 
+<code><a href='dzim.filter.html'>dzim.filter</a></code>,
+<code><a href='dzim.control.html'>dzim.control</a></code>, 
+<code><a href='dzim.sim.html'>dzim.sim</a></code>, 
+<code><a href='dzim.plot.html'>dzim.plot</a></code></p></div>
+    
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      
+      <li><a href="#references">References</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fitter Function for Zero-Inflated Models — zim.fit • ZIM</title>
+<title>Auxiliary for Controlling ZIM Fitting — zim.control • ZIM</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,13 +30,13 @@
 
 
 
-<meta property="og:title" content="Fitter Function for Zero-Inflated Models — zim.fit" />
+<meta property="og:title" content="Auxiliary for Controlling ZIM Fitting — zim.control" />
 
-<meta property="og:description" content="zim.fit is the basic computing engine called by zim used to fit 
-zero-inflated models. This should usually not be used directly unless by experienced users." />
+<meta property="og:description" content="Auxiliary function for zim fitting. Typically only used internally by 
+zim.fit, but may be used to construct a control argument for either function." />
 <meta name="twitter:card" content="summary" />
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -62,7 +62,7 @@ zero-inflated models. This should usually not be used directly unless by experie
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development package">1.1.0.1808</span>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased package">1.1.0.1808</span>
       </span>
     </div>
 
@@ -99,57 +99,66 @@ zero-inflated models. This should usually not be used directly unless by experie
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fitter Function for Zero-Inflated Models</h1>
+    <h1>Auxiliary for Controlling ZIM Fitting</h1>
     <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/zim.R'><code>R/zim.R</code></a></small>
-    <div class="hidden name"><code>zim.fit.Rd</code></div>
+    <div class="hidden name"><code>zim.control.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p><code>zim.fit</code> is the basic computing engine called by <code><a href='zim.html'>zim</a></code> used to fit 
-zero-inflated models. This should usually <em>not</em> be used directly unless by experienced users.</p>
+    <p>Auxiliary function for <code><a href='zim.html'>zim</a></code> fitting. Typically only used internally by 
+<code><a href='zim.fit.html'>zim.fit</a></code>, but may be used to construct a control argument for either function.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>zim.fit</span>(<span class='no'>y</span>, <span class='no'>X</span>, <span class='no'>Z</span>, <span class='kw'>weights</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>1</span>, <span class='no'>nobs</span>), <span class='kw'>offset</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>0</span>, <span class='no'>nobs</span>),
-  <span class='kw'>control</span> <span class='kw'>=</span> <span class='fu'><a href='zim.control.html'>zim.control</a></span>(<span class='no'>...</span>), <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>zim.control</span>(<span class='kw'>dist</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"zip"</span>, <span class='st'>"zinb"</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"EM-NR"</span>, <span class='st'>"EM-FS"</span>),
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"solve"</span>, <span class='st'>"ginv"</span>), <span class='kw'>robust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>trace</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>minit</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>maxit</span> <span class='kw'>=</span> <span class='fl'>10000</span>, <span class='kw'>epsilon</span> <span class='kw'>=</span> <span class='fl'>1e-08</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>y</th>
-      <td><p>response variable.</p></td>
+      <th>dist</th>
+      <td><p>count model family.</p></td>
     </tr>
     <tr>
-      <th>X</th>
-      <td><p>design matrix for log-linear part.</p></td>
+      <th>method</th>
+      <td><p>algorithm for parameter estimation.</p></td>
     </tr>
     <tr>
-      <th>Z</th>
-      <td><p>design matrix for logistic part.</p></td>
+      <th>type</th>
+      <td><p>type of matrix inverse.</p></td>
     </tr>
     <tr>
-      <th>weights</th>
-      <td><p>an optional vector of 'prior weights' to be used in the fitting process.</p></td>
+      <th>robust</th>
+      <td><p>logical; if TRUE, robust standard errors will be calculated.</p></td>
     </tr>
     <tr>
-      <th>offset</th>
-      <td><p>offset variable</p></td>
+      <th>trace</th>
+      <td><p>logical; if TRUE, display iteration history.</p></td>
     </tr>
     <tr>
-      <th>control</th>
-      <td><p>control arguments from <code><a href='zim.control.html'>zim.control</a></code>.</p></td>
+      <th>start</th>
+      <td><p>initial parameter values.</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>additional argumetns.</p></td>
+      <th>minit</th>
+      <td><p>minimum number of iterations.</p></td>
+    </tr>
+    <tr>
+      <th>maxit</th>
+      <td><p>maximum number of iterations.</p></td>
+    </tr>
+    <tr>
+      <th>epsilon</th>
+      <td><p>positive convergence tolerance.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='zim.html'>zim</a></code>, <code><a href='zim.control.html'>zim.control</a></code></p></div>
+    <div class='dont-index'><p><code><a href='zim.html'>zim</a></code>, <code><a href='zim.fit.html'>zim.fit</a></code></p></div>
     
 
   </div>

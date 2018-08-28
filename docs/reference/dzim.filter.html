@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Trace Plots from DZIM — dzim.plot • ZIM</title>
+<title>Particle Filtering for DZIM — dzim.filter • ZIM</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,12 +30,12 @@
 
 
 
-<meta property="og:title" content="Trace Plots from DZIM — dzim.plot" />
+<meta property="og:title" content="Particle Filtering for DZIM — dzim.filter" />
 
-<meta property="og:description" content="Function to display trace plots from a dynamic zero-inflated model." />
+<meta property="og:description" content="Function to implement the particle filtering method proposed by Gordsill et al. (1993)." />
 <meta name="twitter:card" content="summary" />
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development package">1.1.0.1808</span>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased package">1.1.0.1808</span>
       </span>
     </div>
 
@@ -98,39 +98,57 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Trace Plots from DZIM</h1>
+    <h1>Particle Filtering for DZIM</h1>
     <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/dzim.R'><code>R/dzim.R</code></a></small>
-    <div class="hidden name"><code>dzim.plot.Rd</code></div>
+    <div class="hidden name"><code>dzim.filter.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Function to display trace plots from a dynamic zero-inflated model.</p>
+    <p>Function to implement the particle filtering method proposed by Gordsill et al. (1993).</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dzim.plot</span>(<span class='no'>object</span>, <span class='kw'>k.inv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>sigma.sq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dzim.filter</span>(<span class='no'>y</span>, <span class='no'>X</span>, <span class='no'>w</span>, <span class='no'>para</span>, <span class='no'>control</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>objective from <code><a href='dzim.html'>dzim</a></code> or <code><a href='dzim.fit.html'>dzim.fit</a></code>.</p></td>
+      <th>y</th>
+      <td><p>response variable.</p></td>
     </tr>
     <tr>
-      <th>k.inv</th>
-      <td><p>logical; indicating whether an inverse transformation is needed for the dispersion parameter.</p></td>
+      <th>X</th>
+      <td><p>design matrix.</p></td>
     </tr>
     <tr>
-      <th>sigma.sq</th>
-      <td><p>logical; indicating whether a square transformation is needed for the standard deviation parameter.</p></td>
+      <th>w</th>
+      <td><p><code>log(w)</code> is used as an offset variable in the linear predictor.</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>additional arguments.</p></td>
+      <th>para</th>
+      <td><p>model parameters.</p></td>
+    </tr>
+    <tr>
+      <th>control</th>
+      <td><p>control arguments.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Gordon, N. J., Salmond, D. J., and Smith, A. F. M. (1993). Novel approach to nonlinear/non-Gaussian 
+Bayesian state estimation. <em>IEEE Proceedings</em>, <b>140</b>, 107-113.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='dzim.html'>dzim</a></code>,
+<code><a href='dzim.fit.html'>dzim.fit</a></code>, 
+<code><a href='dzim.smooth.html'>dzim.smooth</a></code>,
+<code><a href='dzim.control.html'>dzim.control</a></code>,
+<code><a href='dzim.sim.html'>dzim.sim</a></code>,
+<code><a href='dzim.plot.html'>dzim.plot</a></code></p></div>
     
 
   </div>
@@ -138,7 +156,11 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#references">References</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

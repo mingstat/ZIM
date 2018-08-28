@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zero-Inflated Models for Count Time Series with Excess Zeros — ZIM-package • ZIM</title>
+<title>Simulate Data from DZIM — dzim.sim • ZIM</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,12 +30,12 @@
 
 
 
-<meta property="og:title" content="Zero-Inflated Models for Count Time Series with Excess Zeros — ZIM-package" />
+<meta property="og:title" content="Simulate Data from DZIM — dzim.sim" />
 
-<meta property="og:description" content="Fits observation-driven and parameter-driven models for count time series with excess zeros." />
+<meta property="og:description" content="Simulate data from a dynamic zero-inflated model." />
 <meta name="twitter:card" content="summary" />
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development package">1.1.0.1808</span>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased package">1.1.0.1808</span>
       </span>
     </div>
 
@@ -98,51 +98,77 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Zero-Inflated Models for Count Time Series with Excess Zeros</h1>
-    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/package.R'><code>R/package.R</code></a></small>
-    <div class="hidden name"><code>ZIM-package.Rd</code></div>
+    <h1>Simulate Data from DZIM</h1>
+    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/dzim.R'><code>R/dzim.R</code></a></small>
+    <div class="hidden name"><code>dzim.sim.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Fits observation-driven and parameter-driven models for count time series with excess zeros.</p>
+    <p>Simulate data from a dynamic zero-inflated model.</p>
     
     </div>
 
-        
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>The package <code>ZIM</code> contains functions to fit statistical models for count time series 
-with excess zeros (Yang et al., 2013, 2015). The main function for fitting observation-driven models 
-is <code><a href='zim.html'>zim</a></code>, and the main function for fitting parameter-driven models is <code><a href='dzim.html'>dzim</a></code>.</p>
+    <pre class="usage"><span class='fu'>dzim.sim</span>(<span class='no'>X</span>, <span class='no'>w</span>, <span class='no'>omega</span>, <span class='no'>k</span>, <span class='no'>beta</span>, <span class='no'>phi</span>, <span class='no'>sigma</span>, <span class='no'>mu0</span>, <span class='no'>Sigma0</span>)</pre>
     
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p>The observation-driven models for zero-inflated count time series can also be fit using the function 
-<code><a href='http://www.rdocumentation.org/packages/pscl/topics/zeroinfl'>zeroinfl</a></code> from the <code>pscl</code> package (Zeileis et al., 2008). 
-Fitting parameter-driven models is based on sequential Monte Carlo (SMC) methods, which are
-computer intensive and could take several hours to estimate the model parameters.</p>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>X</th>
+      <td><p>design matrix.</p></td>
+    </tr>
+    <tr>
+      <th>w</th>
+      <td><p><code>log(w)</code> is used as an offset variable in the linear predictor.</p></td>
+    </tr>
+    <tr>
+      <th>omega</th>
+      <td><p>zero-inflation parameter.</p></td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td><p>dispersion parameter.</p></td>
+    </tr>
+    <tr>
+      <th>beta</th>
+      <td><p>regression coefficients.</p></td>
+    </tr>
+    <tr>
+      <th>phi</th>
+      <td><p>autoregressive coefficients.</p></td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td><p>standard deviation.</p></td>
+    </tr>
+    <tr>
+      <th>mu0</th>
+      <td><p>mean vector of initial state.</p></td>
+    </tr>
+    <tr>
+      <th>Sigma0</th>
+      <td><p>covariance matrix of initial state.</p></td>
+    </tr>
+    </table>
     
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Yang, M., Cavanaugh, J. E., and Zamba, G. K. D. (2015). State-space models for count time series
-with excess zeros. <em>Statistical Modelling</em>, <b>15</b>:70-90 <br /> <br />
-Yang, M., Zamba, G. K. D., and Cavanaugh, J. E. (2013). Markov regression models for count time series
-with excess zeros: A partial likelihood approach. <em>Statistical Methodology</em>, <b>14</b>:26-38. <br /> <br />
-Zeileis, A., Kleiber, C., and Jackman, S. (2008). Regression models for count data in <code>R</code>.  
-<em>Journal of Statistical Software</em>, <b>27</b>(8).</p>
+    <div class='dont-index'><p><code><a href='dzim.html'>dzim</a></code>,
+<code><a href='dzim.fit.html'>dzim.fit</a></code>,
+<code><a href='dzim.filter.html'>dzim.filter</a></code>, 
+<code><a href='dzim.smooth.html'>dzim.smooth</a></code>,
+<code><a href='dzim.control.html'>dzim.control</a></code>,
+<code><a href='dzim.plot.html'>dzim.plot</a></code></p></div>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#note">Note</a></li>
-
-      <li><a href="#references">References</a></li>
+      <li><a href="#see-also">See also</a></li>
           </ul>
 
   </div>

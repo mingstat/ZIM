@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Auxiliary for Controlling ZIM Fitting — zim.control • ZIM</title>
+<title>Trace Plots from DZIM — dzim.plot • ZIM</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,13 +30,12 @@
 
 
 
-<meta property="og:title" content="Auxiliary for Controlling ZIM Fitting — zim.control" />
+<meta property="og:title" content="Trace Plots from DZIM — dzim.plot" />
 
-<meta property="og:description" content="Auxiliary function for zim fitting. Typically only used internally by 
-zim.fit, but may be used to construct a control argument for either function." />
+<meta property="og:description" content="Function to display trace plots from a dynamic zero-inflated model." />
 <meta name="twitter:card" content="summary" />
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -62,7 +61,7 @@ zim.fit, but may be used to construct a control argument for either function." /
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development package">1.1.0.1808</span>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased package">1.1.0.1808</span>
       </span>
     </div>
 
@@ -99,66 +98,39 @@ zim.fit, but may be used to construct a control argument for either function." /
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Auxiliary for Controlling ZIM Fitting</h1>
-    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/zim.R'><code>R/zim.R</code></a></small>
-    <div class="hidden name"><code>zim.control.Rd</code></div>
+    <h1>Trace Plots from DZIM</h1>
+    <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/dzim.R'><code>R/dzim.R</code></a></small>
+    <div class="hidden name"><code>dzim.plot.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Auxiliary function for <code><a href='zim.html'>zim</a></code> fitting. Typically only used internally by 
-<code><a href='zim.fit.html'>zim.fit</a></code>, but may be used to construct a control argument for either function.</p>
+    <p>Function to display trace plots from a dynamic zero-inflated model.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>zim.control</span>(<span class='kw'>dist</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"zip"</span>, <span class='st'>"zinb"</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"EM-NR"</span>, <span class='st'>"EM-FS"</span>),
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"solve"</span>, <span class='st'>"ginv"</span>), <span class='kw'>robust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>trace</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>minit</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>maxit</span> <span class='kw'>=</span> <span class='fl'>10000</span>, <span class='kw'>epsilon</span> <span class='kw'>=</span> <span class='fl'>1e-08</span>)</pre>
+    <pre class="usage"><span class='fu'>dzim.plot</span>(<span class='no'>object</span>, <span class='kw'>k.inv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>sigma.sq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dist</th>
-      <td><p>count model family.</p></td>
+      <th>object</th>
+      <td><p>objective from <code><a href='dzim.html'>dzim</a></code> or <code><a href='dzim.fit.html'>dzim.fit</a></code>.</p></td>
     </tr>
     <tr>
-      <th>method</th>
-      <td><p>algorithm for parameter estimation.</p></td>
+      <th>k.inv</th>
+      <td><p>logical; indicating whether an inverse transformation is needed for the dispersion parameter.</p></td>
     </tr>
     <tr>
-      <th>type</th>
-      <td><p>type of matrix inverse.</p></td>
+      <th>sigma.sq</th>
+      <td><p>logical; indicating whether a square transformation is needed for the standard deviation parameter.</p></td>
     </tr>
     <tr>
-      <th>robust</th>
-      <td><p>logical; if TRUE, robust standard errors will be calculated.</p></td>
-    </tr>
-    <tr>
-      <th>trace</th>
-      <td><p>logical; if TRUE, display iteration history.</p></td>
-    </tr>
-    <tr>
-      <th>start</th>
-      <td><p>initial parameter values.</p></td>
-    </tr>
-    <tr>
-      <th>minit</th>
-      <td><p>minimum number of iterations.</p></td>
-    </tr>
-    <tr>
-      <th>maxit</th>
-      <td><p>maximum number of iterations.</p></td>
-    </tr>
-    <tr>
-      <th>epsilon</th>
-      <td><p>positive convergence tolerance.</p></td>
+      <th>...</th>
+      <td><p>additional arguments.</p></td>
     </tr>
     </table>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='zim.html'>zim</a></code>, <code><a href='zim.fit.html'>zim.fit</a></code></p></div>
     
 
   </div>
@@ -166,9 +138,7 @@ zim.fit, but may be used to construct a control argument for either function." /
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#see-also">See also</a></li>
-          </ul>
+                </ul>
 
   </div>
 </div>

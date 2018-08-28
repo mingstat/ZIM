@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Particle Smoothing for DZIM — dzim.smooth • ZIM</title>
+<title>Auxiliary for Controlling DZIM Fitting — dzim.control • ZIM</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,12 +30,13 @@
 
 
 
-<meta property="og:title" content="Particle Smoothing for DZIM — dzim.smooth" />
+<meta property="og:title" content="Auxiliary for Controlling DZIM Fitting — dzim.control" />
 
-<meta property="og:description" content="Function to implement the particle smoothing method proposed by Gordsill et al. (2004)." />
+<meta property="og:description" content="Auxiliary function for dzim fitting. Typically only used internally by 
+dzim.fit, but may be used to construct a control argument for either function." />
 <meta name="twitter:card" content="summary" />
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -61,7 +62,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development package">1.1.0.1808</span>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased package">1.1.0.1808</span>
       </span>
     </div>
 
@@ -98,56 +99,76 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Particle Smoothing for DZIM</h1>
+    <h1>Auxiliary for Controlling DZIM Fitting</h1>
     <small class="dont-index">Source: <a href='https://github.com/biostatstudio/ZIM/blob/master/R/dzim.R'><code>R/dzim.R</code></a></small>
-    <div class="hidden name"><code>dzim.smooth.Rd</code></div>
+    <div class="hidden name"><code>dzim.control.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Function to implement the particle smoothing method proposed by Gordsill et al. (2004).</p>
+    <p>Auxiliary function for <code><a href='dzim.html'>dzim</a></code> fitting. Typically only used internally by 
+<code><a href='dzim.fit.html'>dzim.fit</a></code>, but may be used to construct a control argument for either function.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dzim.smooth</span>(<span class='no'>y</span>, <span class='no'>X</span>, <span class='no'>w</span>, <span class='no'>para</span>, <span class='no'>control</span>)</pre>
+    <pre class="usage"><span class='fu'>dzim.control</span>(<span class='kw'>dist</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"poisson"</span>, <span class='st'>"nb"</span>, <span class='st'>"zip"</span>, <span class='st'>"zinb"</span>), <span class='kw'>trace</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>mu0</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>0</span>, <span class='no'>order</span>), <span class='kw'>Sigma0</span> <span class='kw'>=</span> <span class='fu'>diag</span>(<span class='fl'>1</span>,
+  <span class='no'>order</span>), <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>R</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>niter</span> <span class='kw'>=</span> <span class='fl'>500</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>y</th>
-      <td><p>response variable.</p></td>
+      <th>dist</th>
+      <td><p>count model family</p></td>
     </tr>
     <tr>
-      <th>X</th>
-      <td><p>design matrix.</p></td>
+      <th>trace</th>
+      <td><p>logical; if TRUE, display iteration history.</p></td>
     </tr>
     <tr>
-      <th>w</th>
-      <td><p><code>log(w)</code> is used as an offset variable in the linear predictor.</p></td>
+      <th>start</th>
+      <td><p>initial parameter values.</p></td>
     </tr>
     <tr>
-      <th>para</th>
-      <td><p>model parameters.</p></td>
+      <th>order</th>
+      <td><p>autoregressive order.</p></td>
     </tr>
     <tr>
-      <th>control</th>
-      <td><p>control arguments.</p></td>
+      <th>mu0</th>
+      <td><p>mean vector for initial state.</p></td>
+    </tr>
+    <tr>
+      <th>Sigma0</th>
+      <td><p>covariance matrix for initial state.</p></td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td><p>number of particiles in particle filtering.</p></td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td><p>number of replications in particle smoothing.</p></td>
+    </tr>
+    <tr>
+      <th>niter</th>
+      <td><p>number of iterations.</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Gordsill, S. J., Doucet, A., and West, M. (2004). Monte Carlo smoothing for nonlinear time series. 
-<em>Journal of the American Statistical Association</em>, <b>99</b>, 156-168.</p>
+    <p>The default values of <code>N</code>, <code>R</code>, and <code>niter</code> are chosen based on our experience.
+In some cases, <code>N</code> = 500, <code>R</code> = 500, and <code>niter</code> = 200 might be sufficient. 
+The <code><a href='dzim.plot.html'>dzim.plot</a></code> function should always be used for convergence diagnostics.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='dzim.html'>dzim</a></code>,
 <code><a href='dzim.fit.html'>dzim.fit</a></code>, 
-<code><a href='dzim.filter.html'>dzim.filter</a></code>,
-<code><a href='dzim.control.html'>dzim.control</a></code>, 
-<code><a href='dzim.sim.html'>dzim.sim</a></code>, 
+<code><a href='dzim.filter.html'>dzim.filter</a></code>, 
+<code><a href='dzim.smooth.html'>dzim.smooth</a></code>,
+<code><a href='dzim.sim.html'>dzim.sim</a></code>,
 <code><a href='dzim.plot.html'>dzim.plot</a></code></p></div>
     
 
@@ -157,7 +178,7 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#references">References</a></li>
+      <li><a href="#note">Note</a></li>
 
       <li><a href="#see-also">See also</a></li>
           </ul>
