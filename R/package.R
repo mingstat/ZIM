@@ -21,6 +21,11 @@
 #' @import MASS
 NULL
 
+#' @import stats
+NULL
+
+#' @importFrom graphics points
+NULL
 
 #' @docType data
 #' @name injury

@@ -17,6 +17,10 @@ Description: This package provides functions to analyze count time series with e
 License: GPL-3
 Encoding: UTF-8
 RoxygenNote: 6.1.0
-Imports: MASS
+Imports: 
+    MASS
+Suggests: 
+    pscl, 
+    TSA
 URL: https://github.com/biostatstudio/ZIM
 BugReports: https://github.com/biostatstudio/ZIM/issues
