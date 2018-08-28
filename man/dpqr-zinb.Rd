@@ -42,6 +42,7 @@ negative binomial (ZINB) distribution with parameters \code{k}, \code{lambda}, a
 dzinb(x = 0:10, k = 1, lambda = 1, omega = 0.5)
 pzinb(q = c(1, 5, 9), k = 1, lambda = 1, omega = 0.5)
 qzinb(p = c(0.25, 0.50, 0.75), k = 1, lambda = 1, omega = 0.5)
+set.seed(123)
 rzinb(n = 100, k = 1, lambda = 1, omega = 0.5)
 }
 \seealso{

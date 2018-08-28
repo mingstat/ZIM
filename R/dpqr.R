@@ -24,6 +24,7 @@
 #' dzip(x = 0:10, lambda = 1, omega = 0.5)
 #' pzip(q = c(1, 5, 9), lambda = 1, omega = 0.5)
 #' qzip(p = c(0.25, 0.50, 0.75), lambda = 1, omega = 0.5)
+#' set.seed(123)
 #' rzip(n = 100, lambda = 1, omega = 0.5)
 #' @keywords distribution
 #' @export dzip pzip qzip rzip
@@ -91,6 +92,7 @@ rzip <- function(n, lambda, omega) {
 #' dzinb(x = 0:10, k = 1, lambda = 1, omega = 0.5)
 #' pzinb(q = c(1, 5, 9), k = 1, lambda = 1, omega = 0.5)
 #' qzinb(p = c(0.25, 0.50, 0.75), k = 1, lambda = 1, omega = 0.5)
+#' set.seed(123)
 #' rzinb(n = 100, k = 1, lambda = 1, omega = 0.5)
 #' @keywords distribution
 #' @export dzinb pzinb qzinb rzinb
