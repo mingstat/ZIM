@@ -1,18 +1,24 @@
-#' @title Backshift Operator
-#' @description Apply the backshift operator or lag operator to a time series objective.
+#' Backshift Operator
+#'  
+#' Apply the backshift operator or lag operator to a time series objective.
+#' 
 #' @param x univariate or multivariate time series.
 #' @param k number of lags.
-#' @seealso \code{\link[dplyr]{lag}}, \code{\link[TSA]{zlag}}
+#' 
 #' @examples 
 #' x <- arima.sim(model = list(ar = 0.8, sd = 0.5), n = 120)
 #' bshift(x, k = 12)
+#' 
 #' @keywords misc
-#' @export bshift
+#' 
+#' @export
 bshift <- function(x, k = 1) {
   x <- as.matrix(x)
   n <- NROW(x)
   rbind(window(x, start = n - k + 1) * NA, window(x, end = n - k))
 }
+
+
 
 #' @title Function to Compute P-value.
 #' @description Function to compute p-value based on a t-statistic.
@@ -22,7 +28,7 @@ bshift <- function(x, k = 1) {
 #' @examples
 #' pvalue(1.96, alternative = "greater")
 #' @keywords misc
-#' @export pvalue
+#' @export
 pvalue <- function(t, df = Inf, alternative = c("two.sided", "less", "greater")) {
   alternative <- match.arg(alternative)
   if(alternative == "less") {

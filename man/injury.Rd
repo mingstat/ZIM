@@ -18,6 +18,7 @@ plot(injury, type = "o", pch = 20, xaxt = "n", yaxt = "n", ylab = "Injury Count"
   abline(v = 57, lty = 2)
   mtext("Pre-intervention",  line = 1, at = 25, cex = 1.5)
   mtext("Post-intervention", line = 1, at = 80, cex = 1.5)
+
 }
 \references{
 Yau, K. K. W., Lee, A. H. and Carrivick, P. J. W. (2004). Modeling zero-inflated count series with 

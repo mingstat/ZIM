@@ -88,5 +88,6 @@ C.N.M.I.: Commonwealth of Northern Mariana Islands.
 \examples{
 data(syph)
 plot(ts(syph$a33), main = "Maryland")
+
 }
 \keyword{datasets}

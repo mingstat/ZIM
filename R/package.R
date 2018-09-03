@@ -1,15 +1,21 @@
-#' @docType package
-#' @name ZIM-package
-#' @aliases ZIM
-#' @title Zero-Inflated Models for Count Time Series with Excess Zeros
-#' @description Fits observation-driven and parameter-driven models for count time series with excess zeros. 
-#' @details The package \code{ZIM} contains functions to fit statistical models for count time series 
+#' Zero-Inflated Models for Count Time Series with Excess Zeros
+#' 
+#' Fits observation-driven and parameter-driven models for count time series with excess zeros. 
+#' 
+#' The package \code{ZIM} contains functions to fit statistical models for count time series 
 #' with excess zeros (Yang et al., 2013, 2015). The main function for fitting observation-driven models 
 #' is \code{\link{zim}}, and the main function for fitting parameter-driven models is \code{\link{dzim}}. 
 #' @note The observation-driven models for zero-inflated count time series can also be fit using the function 
 #' \code{\link[pscl]{zeroinfl}} from the \code{pscl} package (Zeileis et al., 2008). 
 #' Fitting parameter-driven models is based on sequential Monte Carlo (SMC) methods, which are
 #' computer intensive and could take several hours to estimate the model parameters.
+#' 
+#' @docType package
+#' 
+#' @name ZIM-package
+#' 
+#' @aliases ZIM
+#' 
 #' @references
 #' Yang, M., Cavanaugh, J. E., and Zamba, G. K. D. (2015). State-space models for count time series
 #' with excess zeros. \emph{Statistical Modelling}, \bold{15}:70-90 \cr \cr
@@ -17,24 +23,35 @@
 #' with excess zeros: A partial likelihood approach. \emph{Statistical Methodology}, \bold{14}:26-38. \cr \cr
 #' Zeileis, A., Kleiber, C., and Jackman, S. (2008). Regression models for count data in \code{R}.  
 #' \emph{Journal of Statistical Software}, \bold{27}(8). 
+#' 
 #' @keywords package
+#' 
 #' @import MASS
 NULL
+
 
 #' @import stats
 NULL
 
+
 #' @importFrom graphics points
 NULL
 
+
 #' @docType data
+#' 
 #' @name injury
+#' 
 #' @title Example: Injury Series from Occupational Health
+#' 
 #' @description Monthly number of injuries in hospitals from July 1988 to October 1995.
+#' 
 #' @source Numbers from Figure 1 of Yau et al. (2004).
+#' 
 #' @references
 #' Yau, K. K. W., Lee, A. H. and Carrivick, P. J. W. (2004). Modeling zero-inflated count series with 
 #' application to occupational health. \emph{Computer Methods and Programs in Biomedicine}, \bold{74}, 47-52.
+#' 
 #' @examples
 #' data(injury)
 #' plot(injury, type = "o", pch = 20, xaxt = "n", yaxt = "n", ylab = "Injury Count")
@@ -43,14 +60,19 @@ NULL
 #'   abline(v = 57, lty = 2)
 #'   mtext("Pre-intervention",  line = 1, at = 25, cex = 1.5)
 #'   mtext("Post-intervention", line = 1, at = 80, cex = 1.5)
+#' 
 #' @keywords datasets
 NULL
 
 
 #' @docType data
+#' 
 #' @name syph
+#' 
 #' @title Example: Syphilis Series
+#' 
 #' @description Weekly number of syphilis cases in the United States from 2007 to 2010.
+#' 
 #' @format A data frame with 209 observations on the following 69 variables.
 #' \tabular{ll}{
 #' \code{year} \tab Year                 \cr
@@ -123,10 +145,14 @@ NULL
 #' \code{a66}  \tab Peurto Rico          \cr
 #' \code{a67}  \tab U.S. Virgin Islands  \cr
 #' }
+#' 
 #' @note C.N.M.I.: Commonwealth of Northern Mariana Islands.
+#' 
 #' @source CDC Morbidity and Mortality Weekly Report (\url{http://www.cdc.gov/MMWR/}).
+#' 
 #' @examples
 #' data(syph)
 #' plot(ts(syph$a33), main = "Maryland")
+#' 
 #' @keywords datasets
 NULL
