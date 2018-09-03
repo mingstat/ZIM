@@ -583,7 +583,7 @@ print.dzim <- function(x, digits = max(3, getOption("digits") - 3), ...) {
   cat("loglik:", x$ps$pf$loglik, "\n")
   cat("aic:", x$aic, "\n")
   cat("bic:", x$bic, "\n") 
-  cat("tic:", x$tic, "\n") 
+  # cat("tic:", x$tic, "\n") 
   cat("\n")
   invisible(x)
 }
