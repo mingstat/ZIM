@@ -1,0 +1,64 @@
+---
+title: "Introduction to ZIM"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ZIM}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+
+In the `ZIM` package, `zim`, `zim.fit`, and `zim.control` are the main functions to implement the ZIP and ZINB autoregressions. The function `zim` is a user-friendly function to fit zero-inflated observation-driven models. Its usage is very similar to that of the well-known function `glm`. Here, `zim.fit` is the fitter function and it is called by `zim` to fit the models. The `zim.fit` function should not be used directly unless by experienced users. The function `zim.control` is an auxiliary function for `zim` fitting. It is typically only used internally by `zim.fit`, but may be used to contruct a `control` argument to either function. 
+
+Compared to observation-driven models, parameter estimation in parameter-driven models is much more challenging (`dzim`, `dzim.fit`, `dzim.filter`, `dzim.smooth`, `dzim.control`). The following are the functions that can be used to fit the dynamic ZIP and ZINB models. In addition, the dynamic Poisson and NB models can also be fit since they are simply special cases of the dynamic zero-infalted models. The function `dzim` is a user-friendly function to fit dynamic zero-inflated models. The default order for the autoregressive process is assumed to be one. Here, `dzim.fit` is the fitter function and it is called by `dzim` to fit the models. The function `dzim.control` is an auxiliary function for `dzim` fitting. The functions `dzim.filter` and `dzim.smooth` are used to implement the particle filtering and particle smoothing methods, respectively. 
+
+## Observation-Driven Models
+
+### ZIP Autoregression
+
+We first fit a ZIP autoregression with an AR(1) correlation structure. The linear trend is included in both the log-linear and logistic parts of the model. 
+
+```{r}
+library(ZIM)
+```
+
+```{r}
+data(syph)
+count <- syph$a33
+ar1 <- bshift(count > 0)
+trend <- 1:length(count) / 1000
+zim(count ~ ar1 + trend | trend)
+```
+
+The EM-NR algorithm is used as the default algorithm in the zim function. The score test for overdispersion suggests that the ZINB model could provide a better fit to the syphilis data (p = 0.0046).
+
+### ZINB Autoregression
+
+As suggested by the score test, we next fit a ZINB autoregression, with all the other components remaining the same as in the ZIP autoregression.
+
+```{r}
+zim(count ~ ar1 + trend | trend, dist = "zinb")
+```
+
+The AIC and TIC suggest a marginal improvement when the ZINB autoregression is used. However, the BIC values for the ZIP and ZINB autoregressions are not distinguishable. This should not be surprising as BIC tends to penalize more for complexity.
+
+# Parameter-Driven Models
+
+### Dynamic ZIP Model
+
+We now fit a dynamic ZIP model to the syphilis data. The trend is included as a deterministic covariate in the log-linear model. The zero-inflation parameter is assumed to be constant over time.
+
+```{r, eval=FALSE}
+dzim(count ~ trend, dist = "zip", minit = 300)
+```
+
+### Dynamic ZINB Model
+
+We next fit a dynamic ZINB model to see whether a need remains for the NB dispersion parameter.
+
+```{r, eval=FALSE}
+dzim(count ~ trend, dist = "zinb", minit = 300)
+```
+
+
