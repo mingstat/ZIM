@@ -35,7 +35,7 @@ m1 <- zim(count ~ ar1 + trend | trend)
 m1
 ```
 
-The EM-NR algorithm is used as the default algorithm in the zim function. The score test for overdispersion suggests that the ZINB model could provide a better fit to the syphilis data (p = 0.0046).
+The EM-NR algorithm is used as the default algorithm in the zim function. The score test for overdispersion suggests that the ZINB model could provide a better fit to the syphilis data (p = `r round(m1$p.value, 4)`).
 
 ### ZINB Autoregression
 
@@ -56,7 +56,7 @@ We now fit a dynamic ZIP model to the syphilis data. The trend is included as a 
 
 ```{r dzim-zip, cache=TRUE}
 set.seed(123)
-system.time(m3 <- dzim(count ~ trend, dist = "zip", N = 100, R = 100, niter = 100))
+system.time(m3 <- dzim(count ~ trend, dist = "zip", N = 200, R = 200, niter = 100))
 m3
 ```
 
@@ -66,8 +66,7 @@ We next fit a dynamic ZINB model to see whether a need remains for the NB disper
 
 ```{r dzim-zinb, cache=TRUE}
 set.seed(123)
-system.time(m4 <- dzim(count ~ trend, dist = "zinb", N = 100, R = 100, niter = 100))
+system.time(m4 <- dzim(count ~ trend, dist = "zinb", N = 200, R = 200, niter = 100))
 m4
 ```
 
-Since the inclusion of the correlated random effect can account for both autocorrelation and overdispersion, fitting a more complicated ZINB model does not help to further reduce AIC, BIC, or TIC.

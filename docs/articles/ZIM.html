@@ -170,71 +170,70 @@
 <a href="#dynamic-zip-model" class="anchor"></a>Dynamic ZIP Model</h3>
 <p>We now fit a dynamic ZIP model to the syphilis data. The trend is included as a deterministic covariate in the log-linear model. The zero-inflation parameter is assumed to be constant over time.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">system.time</span>(m3 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zip"</span>, <span class="dt">N =</span> <span class="dv">100</span>, <span class="dt">R =</span> <span class="dv">100</span>, <span class="dt">niter =</span> <span class="dv">100</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">system.time</span>(m3 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zip"</span>, <span class="dt">N =</span> <span class="dv">200</span>, <span class="dt">R =</span> <span class="dv">200</span>, <span class="dt">niter =</span> <span class="dv">100</span>))</a></code></pre></div>
 <pre><code>##    user  system elapsed 
-## 166.492   7.370 174.072</code></pre>
+## 445.513  21.539 469.047</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">m3</a></code></pre></div>
 <pre><code>## 
 ## Call:
-## dzim(formula = count ~ trend, dist = "zip", N = 100, R = 100,     niter = 100)
+## dzim(formula = count ~ trend, dist = "zip", N = 200, R = 200,     niter = 100)
 ## 
-## (Zero-inflation parameter taken to be 0.2683) 
+## (Zero-inflation parameter taken to be 0.2679) 
 ## 
 ## Coefficients (log-linear): 
 ##              Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)  1.674684   0.079355 21.1038  &lt; 2e-16 ***
-## trend       -1.593465   0.745120 -2.1385  0.03247 *  
+## (Intercept)  1.681576   0.081509 20.6307  &lt; 2e-16 ***
+## trend       -1.646273   0.749163 -2.1975  0.02799 *  
 ## 
 ## Coefficients (autoregressive): 
 ##      Estimate Std. Error z value Pr(&gt;|z|)
-## ar1 -0.055786   0.288908 -0.1931   0.8469
+## ar1 -0.073878   0.345154  -0.214   0.8305
 ## ---
 ## Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 ## 
-## (Standard deviation parameter taken to be 0.2344) 
+## (Standard deviation parameter taken to be 0.2504) 
 ## 
 ## Criteria for assessing goodness of fit 
-## loglik: -461.23 
-## aic: 932.4601 
-## bic: 949.1717 
-## tic: 1020.465</code></pre>
+## loglik: -460.4716 
+## aic: 930.9432 
+## bic: 947.6548 
+## tic: 1101.591</code></pre>
 </div>
 <div id="dynamic-zinb-model" class="section level3">
 <h3 class="hasAnchor">
 <a href="#dynamic-zinb-model" class="anchor"></a>Dynamic ZINB Model</h3>
 <p>We next fit a dynamic ZINB model to see whether a need remains for the NB dispersion parameter.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">system.time</span>(m4 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zinb"</span>, <span class="dt">N =</span> <span class="dv">100</span>, <span class="dt">R =</span> <span class="dv">100</span>, <span class="dt">niter =</span> <span class="dv">100</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">system.time</span>(m4 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zinb"</span>, <span class="dt">N =</span> <span class="dv">200</span>, <span class="dt">R =</span> <span class="dv">200</span>, <span class="dt">niter =</span> <span class="dv">100</span>))</a></code></pre></div>
 <pre><code>##    user  system elapsed 
-## 177.225   7.081 184.544</code></pre>
+## 473.792  20.561 497.539</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">m4</a></code></pre></div>
 <pre><code>## 
 ## Call:
-## dzim(formula = count ~ trend, dist = "zinb", N = 100, R = 100,     niter = 100)
+## dzim(formula = count ~ trend, dist = "zinb", N = 200, R = 200,     niter = 100)
 ## 
-## (Zero-inflation parameter taken to be 0.2667) 
+## (Zero-inflation parameter taken to be 0.2694) 
 ## 
-## (Dispersion parameter for negative binomial taken to be 25.1759) 
+## (Dispersion parameter for negative binomial taken to be 41.5243) 
 ## 
 ## Coefficients (log-linear): 
 ##              Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)  1.679274   0.082893 20.2584  &lt; 2e-16 ***
-## trend       -1.522289   0.767205 -1.9842  0.04723 *  
+## (Intercept)  1.684280   0.079953 21.0660  &lt; 2e-16 ***
+## trend       -1.494516   0.763921 -1.9564  0.05042 .  
 ## 
 ## Coefficients (autoregressive): 
 ##     Estimate Std. Error z value Pr(&gt;|z|)
-## ar1 -0.04411    0.61846 -0.0713   0.9431
+## ar1 -0.08078    0.42748  -0.189   0.8501
 ## ---
 ## Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 ## 
-## (Standard deviation parameter taken to be 0.1914) 
+## (Standard deviation parameter taken to be 0.204) 
 ## 
 ## Criteria for assessing goodness of fit 
-## loglik: -460.6693 
-## aic: 933.3387 
-## bic: 953.3927 
-## tic: 1558.539</code></pre>
-<p>Since the inclusion of the correlated random effect can account for both autocorrelation and overdispersion, fitting a more complicated ZINB model does not help to further reduce AIC, BIC, or TIC.</p>
+## loglik: -460.6383 
+## aic: 933.2766 
+## bic: 953.3306 
+## tic: 1329.769</code></pre>
 </div>
 </div>
   </div>
