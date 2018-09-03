@@ -1,8 +1,9 @@
 __Zero-Inflated Models (ZIM) for Count Time Series with Excess Zeros__
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ZIM)](https://CRAN.R-project.org/package=ZIM)
-[![CRAN RStudio mirror overall downloads](http://cranlogs.r-pkg.org/badges/grand-total/ZIM)](http://www.r-pkg.org/pkg/ZIM)
-![CRAN Downloads month](http://cranlogs.r-pkg.org/badges/ZIM)
+
+[![CRAN Status Badge](http://www.r-pkg.org/badges/version/ZIM)](https://cran.r-project.org/package=ZIM)
+[![CRAN Downloads Total](https://cranlogs.r-pkg.org/badges/grand-total/ZIM)](https://cran.r-project.org/package=ZIM)
+[![CRAN Downloads Month](https://cranlogs.r-pkg.org/badges/ZIM)](https://cran.r-project.org/package=ZIM)
 
 ## Overview
 
