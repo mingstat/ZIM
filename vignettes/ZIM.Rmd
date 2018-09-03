@@ -26,7 +26,11 @@ data(syph)
 count <- syph$a33
 ar1 <- bshift(count > 0)
 trend <- 1:length(count) / 1000
-zim(count ~ ar1 + trend | trend)
+```
+
+```{r}
+m1 <- zim(count ~ ar1 + trend | trend)
+m1
 ```
 
 The EM-NR algorithm is used as the default algorithm in the zim function. The score test for overdispersion suggests that the ZINB model could provide a better fit to the syphilis data (p = 0.0046).
@@ -36,7 +40,8 @@ The EM-NR algorithm is used as the default algorithm in the zim function. The sc
 As suggested by the score test, we next fit a ZINB autoregression, with all the other components remaining the same as in the ZIP autoregression.
 
 ```{r}
-zim(count ~ ar1 + trend | trend, dist = "zinb")
+m2 <- zim(count ~ ar1 + trend | trend, dist = "zinb")
+m2
 ```
 
 The AIC and TIC suggest a marginal improvement when the ZINB autoregression is used. However, the BIC values for the ZIP and ZINB autoregressions are not distinguishable. This should not be surprising as BIC tends to penalize more for complexity.
@@ -47,16 +52,20 @@ The AIC and TIC suggest a marginal improvement when the ZINB autoregression is u
 
 We now fit a dynamic ZIP model to the syphilis data. The trend is included as a deterministic covariate in the log-linear model. The zero-inflation parameter is assumed to be constant over time.
 
-```{r, eval=FALSE}
-dzim(count ~ trend, dist = "zip")
+```{r dzim-zip, cache=TRUE}
+set.seed(123)
+system.time(m3 <- dzim(count ~ trend, dist = "zip", N = 100, R = 100, niter = 50))
+m3
 ```
 
 ### Dynamic ZINB Model
 
 We next fit a dynamic ZINB model to see whether a need remains for the NB dispersion parameter.
 
-```{r, eval=FALSE}
-dzim(count ~ trend, dist = "zinb")
+```{r dzim-zinb, cache=TRUE}
+set.seed(123)
+system.time(m4 <- dzim(count ~ trend, dist = "zinb", N = 100, R = 100, niter = 50))
+m4
 ```
 
 

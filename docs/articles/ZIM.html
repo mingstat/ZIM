@@ -87,8 +87,9 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">data</span>(syph)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">count &lt;-<span class="st"> </span>syph<span class="op">$</span>a33</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">ar1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/bshift.html">bshift</a></span>(count <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">trend &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(count) <span class="op">/</span><span class="st"> </span><span class="dv">1000</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw"><a href="../reference/zim.html">zim</a></span>(count <span class="op">~</span><span class="st"> </span>ar1 <span class="op">+</span><span class="st"> </span>trend <span class="op">|</span><span class="st"> </span>trend)</a></code></pre></div>
+<a class="sourceLine" id="cb2-4" data-line-number="4">trend &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(count) <span class="op">/</span><span class="st"> </span><span class="dv">1000</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">m1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/zim.html">zim</a></span>(count <span class="op">~</span><span class="st"> </span>ar1 <span class="op">+</span><span class="st"> </span>trend <span class="op">|</span><span class="st"> </span>trend)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">m1</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## zim(formula = count ~ ar1 + trend | trend)
@@ -124,7 +125,8 @@
 <h3 class="hasAnchor">
 <a href="#zinb-autoregression" class="anchor"></a>ZINB Autoregression</h3>
 <p>As suggested by the score test, we next fit a ZINB autoregression, with all the other components remaining the same as in the ZIP autoregression.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/zim.html">zim</a></span>(count <span class="op">~</span><span class="st"> </span>ar1 <span class="op">+</span><span class="st"> </span>trend <span class="op">|</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zinb"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">m2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/zim.html">zim</a></span>(count <span class="op">~</span><span class="st"> </span>ar1 <span class="op">+</span><span class="st"> </span>trend <span class="op">|</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zinb"</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">m2</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## zim(formula = count ~ ar1 + trend | trend, dist = "zinb")
@@ -162,13 +164,71 @@
 <h3 class="hasAnchor">
 <a href="#dynamic-zip-model" class="anchor"></a>Dynamic ZIP Model</h3>
 <p>We now fit a dynamic ZIP model to the syphilis data. The trend is included as a deterministic covariate in the log-linear model. The zero-inflation parameter is assumed to be constant over time.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zip"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">system.time</span>(m3 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zip"</span>, <span class="dt">N =</span> <span class="dv">100</span>, <span class="dt">R =</span> <span class="dv">100</span>, <span class="dt">niter =</span> <span class="dv">50</span>))</a></code></pre></div>
+<pre><code>##    user  system elapsed 
+## 108.142   4.950 113.218</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">m3</a></code></pre></div>
+<pre><code>## 
+## Call:
+## dzim(formula = count ~ trend, dist = "zip", N = 100, R = 100,     niter = 50)
+## 
+## (Zero-inflation parameter taken to be 0.2659) 
+## 
+## Coefficients (log-linear): 
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  1.665769   0.083059 20.0553  &lt; 2e-16 ***
+## trend       -1.509349   0.744136 -2.0283  0.04253 *  
+## 
+## Coefficients (autoregressive): 
+##      Estimate Std. Error z value Pr(&gt;|z|)
+## ar1 -0.039305   0.706037 -0.0557   0.9556
+## ---
+## Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+## 
+## (Standard deviation parameter taken to be 0.2644) 
+## 
+## Criteria for assessing goodness of fit 
+## loglik: -461.031 
+## aic: 932.0621 
+## bic: 948.7737 
+## tic: 1172.527</code></pre>
 </div>
 <div id="dynamic-zinb-model" class="section level3">
 <h3 class="hasAnchor">
 <a href="#dynamic-zinb-model" class="anchor"></a>Dynamic ZINB Model</h3>
 <p>We next fit a dynamic ZINB model to see whether a need remains for the NB dispersion parameter.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zinb"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">system.time</span>(m4 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zinb"</span>, <span class="dt">N =</span> <span class="dv">100</span>, <span class="dt">R =</span> <span class="dv">100</span>, <span class="dt">niter =</span> <span class="dv">50</span>))</a></code></pre></div>
+<pre><code>##    user  system elapsed 
+## 114.224   5.110 119.482</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">m4</a></code></pre></div>
+<pre><code>## 
+## Call:
+## dzim(formula = count ~ trend, dist = "zinb", N = 100, R = 100,     niter = 50)
+## 
+## (Zero-inflation parameter taken to be 0.2666) 
+## 
+## (Dispersion parameter for negative binomial taken to be 28.7215) 
+## 
+## Coefficients (log-linear): 
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  1.664849   0.085761 19.4126  &lt; 2e-16 ***
+## trend       -1.417810   0.761383 -1.8622  0.06258 .  
+## 
+## Coefficients (autoregressive): 
+##       Estimate Std. Error z value Pr(&gt;|z|)
+## ar1 -0.0067421  0.6117034  -0.011   0.9912
+## ---
+## Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+## 
+## (Standard deviation parameter taken to be 0.2163) 
+## 
+## Criteria for assessing goodness of fit 
+## loglik: -461.3512 
+## aic: 934.7024 
+## bic: 954.7564 
+## tic: 1248.151</code></pre>
 </div>
 </div>
   </div>
