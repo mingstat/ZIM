@@ -7,8 +7,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-## Overview
-
 In the `ZIM` package, `zim`, `zim.fit`, and `zim.control` are the main functions to implement the ZIP and ZINB autoregressions. The function `zim` is a user-friendly function to fit zero-inflated observation-driven models. Its usage is very similar to that of the well-known function `glm`. Here, `zim.fit` is the fitter function and it is called by `zim` to fit the models. The `zim.fit` function should not be used directly unless by experienced users. The function `zim.control` is an auxiliary function for `zim` fitting. It is typically only used internally by `zim.fit`, but may be used to contruct a `control` argument to either function. 
 
 Compared to observation-driven models, parameter estimation in parameter-driven models is much more challenging (`dzim`, `dzim.fit`, `dzim.filter`, `dzim.smooth`, `dzim.control`). The following are the functions that can be used to fit the dynamic ZIP and ZINB models. In addition, the dynamic Poisson and NB models can also be fit since they are simply special cases of the dynamic zero-infalted models. The function `dzim` is a user-friendly function to fit dynamic zero-inflated models. The default order for the autoregressive process is assumed to be one. Here, `dzim.fit` is the fitter function and it is called by `dzim` to fit the models. The function `dzim.control` is an auxiliary function for `dzim` fitting. The functions `dzim.filter` and `dzim.smooth` are used to implement the particle filtering and particle smoothing methods, respectively. 
@@ -50,7 +48,7 @@ The AIC and TIC suggest a marginal improvement when the ZINB autoregression is u
 We now fit a dynamic ZIP model to the syphilis data. The trend is included as a deterministic covariate in the log-linear model. The zero-inflation parameter is assumed to be constant over time.
 
 ```{r, eval=FALSE}
-dzim(count ~ trend, dist = "zip", minit = 300)
+dzim(count ~ trend, dist = "zip")
 ```
 
 ### Dynamic ZINB Model
@@ -58,7 +56,7 @@ dzim(count ~ trend, dist = "zip", minit = 300)
 We next fit a dynamic ZINB model to see whether a need remains for the NB dispersion parameter.
 
 ```{r, eval=FALSE}
-dzim(count ~ trend, dist = "zinb", minit = 300)
+dzim(count ~ trend, dist = "zinb")
 ```
 
 
