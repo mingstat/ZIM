@@ -6,7 +6,7 @@ __Zero-Inflated Models (ZIM) for Count Time Series with Excess Zeros__
 
 ## Overview
 
-Analyze count time series with excess zeros. Two types of statistical models are supported: Markov regression by Yang et al. (2013) and state-space models by Yang et al. (2015). They are also known as observation-driven and parameter-driven models respectively in the time series literature. The functions used for Markov regression or observation-driven models can also be used to fit ordinary regression models with independent data under the zero-inflated Poisson (ZIP) or zero-inflated negative binomial (ZINB) assumption. Besides, the package contains some miscellaneous functions to compute density, distribution, quantile, and generate random numbers from ZIP and ZINB distributions.
+Analyze count time series with excess zeros. Two types of statistical models are supported: Markov regression by [Yang et al. (2013)](https://doi.org/j.stamet.2013.02.001) and state-space models by [Yang et al. (2015)](https://doi.org/10.1177/1471082X14535530). They are also known as observation-driven and parameter-driven models respectively in the time series literature. The functions used for Markov regression or observation-driven models can also be used to fit ordinary regression models with independent data under the zero-inflated Poisson (ZIP) or zero-inflated negative binomial (ZINB) assumption. Besides, the package contains some miscellaneous functions to compute density, distribution, quantile, and generate random numbers from ZIP and ZINB distributions.
 
 ## Installation
 
@@ -29,7 +29,7 @@ devtools::install_github("biostatstudio/ZIM")
 
 ## References
 
-- Ming Yang, Gideon K.D. Zamba, Joseph E. Cavanaugh (2013). Markov Regression Models for Count Time Series with Excess Zeros: A Partial Likelihood Approach. _Statistical Methodology_, 14, 26-38.
+- Ming Yang, Gideon K.D. Zamba, Joseph E. Cavanaugh (2013). [Markov Regression Models for Count Time Series with Excess Zeros: A Partial Likelihood Approach](https://doi.org/j.stamet.2013.02.001). _Statistical Methodology_, 14, 26-38.
 
-- Ming Yang, Joseph E. Cavanaugh, Gideon K.D. Zamba (2015). State-Space Models for Count Time Series with Excess Zeros. _Statistical Modelling_, 15, 70-90.
+- Ming Yang, Joseph E. Cavanaugh, Gideon K.D. Zamba (2015). [State-Space Models for Count Time Series with Excess Zeros](https://doi.org/10.1177/1471082X14535530). _Statistical Modelling_, 15, 70-90.
 
