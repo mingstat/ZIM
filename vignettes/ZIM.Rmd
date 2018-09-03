@@ -60,6 +60,10 @@ system.time(m3 <- dzim(count ~ trend, dist = "zip", N = 200, R = 200, niter = 10
 m3
 ```
 
+```{r}
+dzim.plot(m3)
+```
+
 ## Dynamic ZINB Model
 
 We next fit a dynamic ZINB model to see whether a need remains for the NB dispersion parameter.
@@ -69,4 +73,9 @@ set.seed(123)
 system.time(m4 <- dzim(count ~ trend, dist = "zinb", N = 200, R = 200, niter = 100))
 m4
 ```
+
+```{r}
+dzim.plot(m4)
+```
+
 
