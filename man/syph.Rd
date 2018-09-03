@@ -74,8 +74,7 @@
 \code{a64}  \tab C.N.M.I.             \cr
 \code{a65}  \tab Guam                 \cr
 \code{a66}  \tab Peurto Rico          \cr
-\code{a67}  \tab U.S. Virgin Islands  \cr
-}}
+\code{a67}  \tab U.S. Virgin Islands}}
 \source{
 CDC Morbidity and Mortality Weekly Report (\url{http://www.cdc.gov/MMWR/}).
 }
@@ -87,7 +86,7 @@ C.N.M.I.: Commonwealth of Northern Mariana Islands.
 }
 \examples{
 data(syph)
-plot(ts(syph$a33), main = "Maryland")
+plot(ts(syph$a33), ylab = "Count", main = "Maryland", las = 1)
 
 }
 \keyword{datasets}
