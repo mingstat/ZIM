@@ -86,12 +86,12 @@
 <pre><code>## count
 ##  0  1  2  3  4  5  6  7  8  9 10 11 12 15 
 ## 59 10 14 24 26 26 18 14  3  7  4  2  1  1</code></pre>
-<div id="observation-driven-models" class="section level2">
+<div id="observation-driven-models" class="section level1">
+<h1 class="hasAnchor">
+<a href="#observation-driven-models" class="anchor"></a>Observation-Driven Models</h1>
+<div id="zip-autoregression" class="section level2">
 <h2 class="hasAnchor">
-<a href="#observation-driven-models" class="anchor"></a>Observation-Driven Models</h2>
-<div id="zip-autoregression" class="section level3">
-<h3 class="hasAnchor">
-<a href="#zip-autoregression" class="anchor"></a>ZIP Autoregression</h3>
+<a href="#zip-autoregression" class="anchor"></a>ZIP Autoregression</h2>
 <p>We first fit a ZIP autoregression with an AR(1) correlation structure. The linear trend is included in both the log-linear and logistic parts of the model.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">m1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/zim.html">zim</a></span>(count <span class="op">~</span><span class="st"> </span>ar1 <span class="op">+</span><span class="st"> </span>trend <span class="op">|</span><span class="st"> </span>trend)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">m1</a></code></pre></div>
@@ -126,9 +126,9 @@
 ## Maximum absolute gradient: 2.975398e-14</code></pre>
 <p>The EM-NR algorithm is used as the default algorithm in the zim function. The score test for overdispersion suggests that the ZINB model could provide a better fit to the syphilis data (p = 0.0046).</p>
 </div>
-<div id="zinb-autoregression" class="section level3">
-<h3 class="hasAnchor">
-<a href="#zinb-autoregression" class="anchor"></a>ZINB Autoregression</h3>
+<div id="zinb-autoregression" class="section level2">
+<h2 class="hasAnchor">
+<a href="#zinb-autoregression" class="anchor"></a>ZINB Autoregression</h2>
 <p>As suggested by the score test, we next fit a ZINB autoregression, with all the other components remaining the same as in the ZIP autoregression.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">m2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/zim.html">zim</a></span>(count <span class="op">~</span><span class="st"> </span>ar1 <span class="op">+</span><span class="st"> </span>trend <span class="op">|</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zinb"</span>)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">m2</a></code></pre></div>
@@ -165,9 +165,9 @@
 <div id="parameter-driven-models" class="section level1">
 <h1 class="hasAnchor">
 <a href="#parameter-driven-models" class="anchor"></a>Parameter-Driven Models</h1>
-<div id="dynamic-zip-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#dynamic-zip-model" class="anchor"></a>Dynamic ZIP Model</h3>
+<div id="dynamic-zip-model" class="section level2">
+<h2 class="hasAnchor">
+<a href="#dynamic-zip-model" class="anchor"></a>Dynamic ZIP Model</h2>
 <p>We now fit a dynamic ZIP model to the syphilis data. The trend is included as a deterministic covariate in the log-linear model. The zero-inflation parameter is assumed to be constant over time.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">system.time</span>(m3 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zip"</span>, <span class="dt">N =</span> <span class="dv">200</span>, <span class="dt">R =</span> <span class="dv">200</span>, <span class="dt">niter =</span> <span class="dv">100</span>))</a></code></pre></div>
@@ -199,9 +199,9 @@
 ## bic: 947.6548 
 ## tic: 1101.591</code></pre>
 </div>
-<div id="dynamic-zinb-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#dynamic-zinb-model" class="anchor"></a>Dynamic ZINB Model</h3>
+<div id="dynamic-zinb-model" class="section level2">
+<h2 class="hasAnchor">
+<a href="#dynamic-zinb-model" class="anchor"></a>Dynamic ZINB Model</h2>
 <p>We next fit a dynamic ZINB model to see whether a need remains for the NB dispersion parameter.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
 <a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">system.time</span>(m4 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zinb"</span>, <span class="dt">N =</span> <span class="dv">200</span>, <span class="dt">R =</span> <span class="dv">200</span>, <span class="dt">niter =</span> <span class="dv">100</span>))</a></code></pre></div>
@@ -243,8 +243,18 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#observation-driven-models">Observation-Driven Models</a></li>
-      <li><a href="#parameter-driven-models">Parameter-Driven Models</a></li>
+<li>
+<a href="#observation-driven-models">Observation-Driven Models</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#zip-autoregression">ZIP Autoregression</a></li>
+      <li><a href="#zinb-autoregression">ZINB Autoregression</a></li>
+      </ul>
+</li>
+      <li>
+<a href="#parameter-driven-models">Parameter-Driven Models</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#dynamic-zip-model">Dynamic ZIP Model</a></li>
+      <li><a href="#dynamic-zinb-model">Dynamic ZINB Model</a></li>
+      </ul>
+</li>
       </ul>
 </div>
       </div>
