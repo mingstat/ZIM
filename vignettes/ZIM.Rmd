@@ -14,7 +14,7 @@ library(ZIM)
 ```{r}
 data(syph)
 count <- syph$a33
-ar1 <- bshift(count > 0)
+count.lag1 <- bshift(count > 0)
 trend <- 1:length(count) / 1000
 ```
 
@@ -31,7 +31,7 @@ table(count)
 We first fit a ZIP autoregression with an AR(1) correlation structure. The linear trend is included in both the log-linear and logistic parts of the model. 
 
 ```{r}
-m1 <- zim(count ~ ar1 + trend | trend)
+m1 <- zim(count ~ count.lag1 + trend | trend)
 m1
 ```
 
@@ -42,7 +42,7 @@ The EM-NR algorithm is used as the default algorithm in the zim function. The sc
 As suggested by the score test, we next fit a ZINB autoregression, with all the other components remaining the same as in the ZIP autoregression.
 
 ```{r}
-m2 <- zim(count ~ ar1 + trend | trend, dist = "zinb")
+m2 <- zim(count ~ count.lag1 + trend | trend, dist = "zinb")
 m2
 ```
 
