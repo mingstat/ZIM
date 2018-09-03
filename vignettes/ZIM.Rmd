@@ -7,16 +7,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-In the `ZIM` package, `zim`, `zim.fit`, and `zim.control` are the main functions to implement the ZIP and ZINB autoregressions. The function `zim` is a user-friendly function to fit zero-inflated observation-driven models. Its usage is very similar to that of the well-known function `glm`. Here, `zim.fit` is the fitter function and it is called by `zim` to fit the models. The `zim.fit` function should not be used directly unless by experienced users. The function `zim.control` is an auxiliary function for `zim` fitting. It is typically only used internally by `zim.fit`, but may be used to contruct a `control` argument to either function. 
-
-Compared to observation-driven models, parameter estimation in parameter-driven models is much more challenging (`dzim`, `dzim.fit`, `dzim.filter`, `dzim.smooth`, `dzim.control`). The following are the functions that can be used to fit the dynamic ZIP and ZINB models. In addition, the dynamic Poisson and NB models can also be fit since they are simply special cases of the dynamic zero-infalted models. The function `dzim` is a user-friendly function to fit dynamic zero-inflated models. The default order for the autoregressive process is assumed to be one. Here, `dzim.fit` is the fitter function and it is called by `dzim` to fit the models. The function `dzim.control` is an auxiliary function for `dzim` fitting. The functions `dzim.filter` and `dzim.smooth` are used to implement the particle filtering and particle smoothing methods, respectively. 
-
-## Observation-Driven Models
-
-### ZIP Autoregression
-
-We first fit a ZIP autoregression with an AR(1) correlation structure. The linear trend is included in both the log-linear and logistic parts of the model. 
-
 ```{r}
 library(ZIM)
 ```
@@ -27,6 +17,18 @@ count <- syph$a33
 ar1 <- bshift(count > 0)
 trend <- 1:length(count) / 1000
 ```
+
+```{r}
+plot(ts(count), xlab = "Week", ylab = "Number of Syphilis Cases", 
+     main = "Maryland (2007 - 2010)", type = "o", pch = 20, las = 1)
+table(count)
+```
+
+## Observation-Driven Models
+
+### ZIP Autoregression
+
+We first fit a ZIP autoregression with an AR(1) correlation structure. The linear trend is included in both the log-linear and logistic parts of the model. 
 
 ```{r}
 m1 <- zim(count ~ ar1 + trend | trend)
