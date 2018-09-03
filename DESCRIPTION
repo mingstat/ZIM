@@ -1,6 +1,6 @@
 Package: ZIM
 Title: Zero-Inflated Models (ZIM) for Count Time Series with Excess Zeros
-Version: 1.2.0
+Version: 1.1.1
 Authors@R: c(
     person("Ming", "Yang", role = c("aut", "cre"), email = "mingyang@biostatstudio.com"),
     person("Gideon", "Zamba", role = "aut"),
