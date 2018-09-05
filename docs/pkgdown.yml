@@ -4,6 +4,6 @@ pkgdown_sha: ~
 articles:
   ZIM: ZIM.html
 urls:
-  reference: https://biostatstudio.github.io/ZIM//reference
-  article: https://biostatstudio.github.io/ZIM//articles
+  reference: https://biostatstudio.github.io/ZIM/reference
+  article: https://biostatstudio.github.io/ZIM/articles
 

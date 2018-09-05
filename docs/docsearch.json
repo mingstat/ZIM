@@ -2,21 +2,21 @@
   "index_name": "zim",
   "start_urls": [
     {
-      "url": "https://biostatstudio.github.io/ZIM//index.html",
+      "url": "https://biostatstudio.github.io/ZIM/index.html",
       "selectors_key": "homepage",
       "tags": [
         "homepage"
       ]
     },
     {
-      "url": "https://biostatstudio.github.io/ZIM//reference",
+      "url": "https://biostatstudio.github.io/ZIM/reference",
       "selectors_key": "reference",
       "tags": [
         "reference"
       ]
     },
     {
-      "url": "https://biostatstudio.github.io/ZIM//articles",
+      "url": "https://biostatstudio.github.io/ZIM/articles",
       "selectors_key": "articles",
       "tags": [
         "articles"
@@ -30,7 +30,7 @@
     "/articles/index.html"
   ],
   "sitemap_urls": [
-    "https://biostatstudio.github.io/ZIM//sitemap.xml"
+    "https://biostatstudio.github.io/ZIM/sitemap.xml"
   ],
   "selectors": {
     "homepage": {
