@@ -1,6 +1,9 @@
-pandoc: 2.2.3.2
+pandoc: 2.2.1
 pkgdown: 1.1.0
 pkgdown_sha: ~
 articles:
   ZIM: ZIM.html
+urls:
+  reference: https://biostatstudio.github.io/ZIM//reference
+  article: https://biostatstudio.github.io/ZIM//articles
 
