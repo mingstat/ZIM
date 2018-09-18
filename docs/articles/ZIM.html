@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ZIM</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.1.1</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.1.0.1809</span>
       </span>
     </div>
 
@@ -180,7 +180,7 @@
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">system.time</span>(m3 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zip"</span>, <span class="dt">N =</span> <span class="dv">200</span>, <span class="dt">R =</span> <span class="dv">200</span>, <span class="dt">niter =</span> <span class="dv">100</span>))</a></code></pre></div>
 <pre><code>##    user  system elapsed 
-## 439.423  25.516 466.733</code></pre>
+## 434.329  20.001 482.827</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">m3</a></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -215,7 +215,7 @@
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">system.time</span>(m4 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dzim.html">dzim</a></span>(count <span class="op">~</span><span class="st"> </span>trend, <span class="dt">dist =</span> <span class="st">"zinb"</span>, <span class="dt">N =</span> <span class="dv">200</span>, <span class="dt">R =</span> <span class="dv">200</span>, <span class="dt">niter =</span> <span class="dv">100</span>))</a></code></pre></div>
 <pre><code>##    user  system elapsed 
-## 469.377  22.275 494.248</code></pre>
+## 456.085  20.355 530.039</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">m4</a></code></pre></div>
 <pre><code>## 
 ## Call:

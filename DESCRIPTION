@@ -1,6 +1,6 @@
 Package: ZIM
 Title: Zero-Inflated Models (ZIM) for Count Time Series with Excess Zeros
-Version: 1.1.1
+Version: 1.1.0.1809
 Authors@R: c(
     person("Ming", "Yang", role = c("aut", "cre"), email = "mingyang@biostatstudio.com"),
     person("Gideon", "Zamba", role = "aut"),
@@ -23,3 +23,4 @@ RoxygenNote: 6.1.0
 Imports: MASS
 Suggests: knitr, dplyr, pscl, TSA
 VignetteBuilder: knitr
+LazyData: true
