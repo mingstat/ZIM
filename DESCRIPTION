@@ -20,7 +20,12 @@ BugReports: https://github.com/biostatstudio/ZIM/issues
 License: GPL-3
 Encoding: UTF-8
 RoxygenNote: 6.1.0
-Imports: MASS
-Suggests: knitr, dplyr, pscl, TSA
+Imports: 
+    MASS
+Suggests: 
+    knitr, 
+    dplyr, 
+    pscl, 
+    TSA
 VignetteBuilder: knitr
 LazyData: true
