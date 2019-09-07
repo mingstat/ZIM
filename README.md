@@ -29,7 +29,7 @@ devtools::install_github("biostatio/ZIM")
 
 ## References
 
-- M Yang, GKD Zamba, JE Cavanaugh. Markov regression models for count time series with excess zeros: A partial likelihood approach. Statistical Methodology, 2013, 14:26–38.  <[doi:10.1016/j.stamet.2013.02.001](https://doi.org/10.1016/j.stamet.2013.02.001)> 
+- M Yang, GKD Zamba, JE Cavanaugh. Markov regression models for count time series with excess zeros: A partial likelihood approach. _Statistical Methodology_, 2013, 14:26–38.  <[doi:10.1016/j.stamet.2013.02.001](https://doi.org/10.1016/j.stamet.2013.02.001)> 
 
-- M Yang, JE Cavanaugh, GKD Zamba. State-space models for count time series with excess zeros. Statistical Modelling, 2015, 15(1):70–90. <[doi:10.1177/1471082X14535530](https://doi.org/10.1177/1471082X14535530)>
+- M Yang, JE Cavanaugh, GKD Zamba. State-space models for count time series with excess zeros. _Statistical Modelling_, 2015, 15(1):70–90. <[doi:10.1177/1471082X14535530](https://doi.org/10.1177/1471082X14535530)>
 
