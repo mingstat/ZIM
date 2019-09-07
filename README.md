@@ -24,7 +24,7 @@ Install development version from GitHub:
 
 ```{r, eval=FALSE}
 # install.packages("devtools")
-devtools::install_github("biostatstudio/ZIM")
+devtools::install_github("biostatio/ZIM")
 ```
 
 ## References
