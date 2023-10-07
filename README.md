@@ -23,8 +23,8 @@ install.packages("ZIM")
 Install development version from GitHub:
 
 ```{r, eval=FALSE}
-# install.packages("devtools")
-devtools::install_github("biostatio/ZIM")
+# install.packages("remotes")
+remotes::install_github("mingstat/ZIM")
 ```
 
 ## References
