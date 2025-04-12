@@ -1,8 +1,8 @@
 Package: ZIM
-Title: Zero-Inflated Models (ZIM) for Count Time Series with Excess Zeros
-Version: 1.1.0.1809
+Title: Zero-Inflated Models for Count Time Series with Excess Zeros
+Version: 1.1.0.9000
 Authors@R: c(
-    person("Ming", "Yang", role = c("aut", "cre"), email = "mingyang@biostatstudio.com"),
+    person("Ming", "Yang", role = c("aut", "cre"), email = "hustyangming@gmail.com"),
     person("Gideon", "Zamba", role = "aut"),
     person("Joseph", "Cavanaugh", role = "aut")
     )
@@ -15,11 +15,11 @@ Description: Analyze count time series with excess zeros.
     with independent data under the zero-inflated Poisson (ZIP) or zero-inflated negative binomial (ZINB) 
     assumption. Besides, the package contains some miscellaneous functions to compute density, distribution, 
     quantile, and generate random numbers from ZIP and ZINB distributions.
-URL: https://github.com/biostatstudio/ZIM
-BugReports: https://github.com/biostatstudio/ZIM/issues
+URL: https://github.com/mingstat/ZIM
+BugReports: https://github.com/mingstat/ZIM/issues
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 6.1.0
+RoxygenNote: 7.3.2
 Imports: 
     MASS
 Suggests: 
