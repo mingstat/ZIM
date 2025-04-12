@@ -1,5 +1,4 @@
-__Zero-Inflated Models (ZIM) for Count Time Series with Excess Zeros__
-
+# Zero-Inflated Models
 
 [![CRAN Status Badge](http://www.r-pkg.org/badges/version/ZIM)](https://cran.r-project.org/package=ZIM)
 [![CRAN Downloads Total](https://cranlogs.r-pkg.org/badges/grand-total/ZIM)](https://cran.r-project.org/package=ZIM)
@@ -14,7 +13,7 @@ Analyze count time series with excess zeros. Two types of statistical models are
 
 Install stable version from CRAN:
 
-```{r, eval=FALSE}
+```r
 install.packages("ZIM")
 ```
 
@@ -22,7 +21,7 @@ install.packages("ZIM")
 
 Install development version from GitHub:
 
-```{r, eval=FALSE}
+```r
 # install.packages("remotes")
 remotes::install_github("mingstat/ZIM")
 ```
