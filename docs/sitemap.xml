@@ -1,60 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/index.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/ZIM-package.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/bshift.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/dpqr-zinb.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/dpqr-zip.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/dzim.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/dzim.control.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/dzim.filter.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/dzim.fit.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/dzim.plot.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/dzim.sim.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/dzim.smooth.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/injury.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/pvalue.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/syph.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/zim.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/zim.control.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/reference/zim.fit.html</loc>
-  </url>
-  <url>
-    <loc>https://biostatstudio.github.io/ZIM/articles/ZIM.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/articles/ZIM.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/ZIM-package.html</loc></url>
+<url><loc>/reference/bshift.html</loc></url>
+<url><loc>/reference/dpqr-zinb.html</loc></url>
+<url><loc>/reference/dpqr-zip.html</loc></url>
+<url><loc>/reference/dzim.control.html</loc></url>
+<url><loc>/reference/dzim.filter.html</loc></url>
+<url><loc>/reference/dzim.fit.html</loc></url>
+<url><loc>/reference/dzim.html</loc></url>
+<url><loc>/reference/dzim.plot.html</loc></url>
+<url><loc>/reference/dzim.sim.html</loc></url>
+<url><loc>/reference/dzim.smooth.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/injury.html</loc></url>
+<url><loc>/reference/pvalue.html</loc></url>
+<url><loc>/reference/syph.html</loc></url>
+<url><loc>/reference/zim.control.html</loc></url>
+<url><loc>/reference/zim.fit.html</loc></url>
+<url><loc>/reference/zim.html</loc></url>
 </urlset>
+
