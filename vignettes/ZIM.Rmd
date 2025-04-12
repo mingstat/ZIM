@@ -2,10 +2,18 @@
 title: "Introduction to ZIM"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{ZIM}
+  %\VignetteIndexEntry{Introduction to ZIM}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
 
 ```{r}
 library(ZIM)
@@ -19,7 +27,7 @@ trend <- 1:length(count) / 1000
 ```
 
 ```{r}
-plot(ts(count), xlab = "Week", ylab = "Number of Syphilis Cases", 
+plot(ts(count), xlab = "Week", ylab = "Number of Syphilis Cases",
      main = "Maryland (2007 - 2010)", type = "o", pch = 20, las = 1)
 table(count)
 ```
@@ -35,7 +43,7 @@ m1 <- zim(count ~ count.lag1 + trend | trend)
 m1
 ```
 
-The EM-NR algorithm is used as the default algorithm in the zim function. The score test for overdispersion suggests that the ZINB model could provide a better fit to the syphilis data (p = `r round(m1$p.value, 4)`).
+The EM-NR algorithm is used as the default algorithm in the zim function.
 
 ## ZINB Autoregression
 
@@ -54,7 +62,7 @@ The AIC and TIC suggest a marginal improvement when the ZINB autoregression is u
 
 We now fit a dynamic ZIP model to the syphilis data. The trend is included as a deterministic covariate in the log-linear model. The zero-inflation parameter is assumed to be constant over time.
 
-```{r dzim-zip, cache=TRUE}
+```{r dzim-zip}
 set.seed(123)
 system.time(m3 <- dzim(count ~ trend, dist = "zip", N = 200, R = 200, niter = 100))
 m3
@@ -68,7 +76,7 @@ dzim.plot(m3)
 
 We next fit a dynamic ZINB model to see whether a need remains for the NB dispersion parameter.
 
-```{r dzim-zinb, cache=TRUE}
+```{r dzim-zinb}
 set.seed(123)
 system.time(m4 <- dzim(count ~ trend, dist = "zinb", N = 200, R = 200, niter = 100))
 m4
@@ -77,5 +85,3 @@ m4
 ```{r}
 dzim.plot(m4)
 ```
-
-
