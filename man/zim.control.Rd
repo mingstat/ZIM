@@ -4,9 +4,17 @@
 \alias{zim.control}
 \title{Auxiliary for Controlling ZIM Fitting}
 \usage{
-zim.control(dist = c("zip", "zinb"), method = c("EM-NR", "EM-FS"),
-  type = c("solve", "ginv"), robust = FALSE, trace = FALSE,
-  start = NULL, minit = 10, maxit = 10000, epsilon = 1e-08)
+zim.control(
+  dist = c("zip", "zinb"),
+  method = c("EM-NR", "EM-FS"),
+  type = c("solve", "ginv"),
+  robust = FALSE,
+  trace = FALSE,
+  start = NULL,
+  minit = 10,
+  maxit = 10000,
+  epsilon = 1e-08
+)
 }
 \arguments{
 \item{dist}{count model family.}

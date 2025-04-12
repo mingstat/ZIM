@@ -4,7 +4,8 @@
 \name{syph}
 \alias{syph}
 \title{Example: Syphilis Series}
-\format{A data frame with 209 observations on the following 69 variables.
+\format{
+A data frame with 209 observations on the following 69 variables.
 \tabular{ll}{
 \code{year} \tab Year                 \cr
 \code{week} \tab Week                 \cr
@@ -74,7 +75,8 @@
 \code{a64}  \tab C.N.M.I.             \cr
 \code{a65}  \tab Guam                 \cr
 \code{a66}  \tab Peurto Rico          \cr
-\code{a67}  \tab U.S. Virgin Islands}}
+\code{a67}  \tab U.S. Virgin Islands}
+}
 \source{
 CDC Morbidity and Mortality Weekly Report (\url{http://www.cdc.gov/MMWR/}).
 }

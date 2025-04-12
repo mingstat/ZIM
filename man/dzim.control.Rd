@@ -4,9 +4,17 @@
 \alias{dzim.control}
 \title{Auxiliary for Controlling DZIM Fitting}
 \usage{
-dzim.control(dist = c("poisson", "nb", "zip", "zinb"), trace = FALSE,
-  start = NULL, order = 1, mu0 = rep(0, order), Sigma0 = diag(1,
-  order), N = 1000, R = 1000, niter = 500)
+dzim.control(
+  dist = c("poisson", "nb", "zip", "zinb"),
+  trace = FALSE,
+  start = NULL,
+  order = 1,
+  mu0 = rep(0, order),
+  Sigma0 = diag(1, order),
+  N = 1000,
+  R = 1000,
+  niter = 500
+)
 }
 \arguments{
 \item{dist}{count model family}

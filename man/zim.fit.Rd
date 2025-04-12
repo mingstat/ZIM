@@ -4,8 +4,15 @@
 \alias{zim.fit}
 \title{Fitter Function for Zero-Inflated Models}
 \usage{
-zim.fit(y, X, Z, weights = rep(1, nobs), offset = rep(0, nobs),
-  control = zim.control(...), ...)
+zim.fit(
+  y,
+  X,
+  Z,
+  weights = rep(1, nobs),
+  offset = rep(0, nobs),
+  control = zim.control(...),
+  ...
+)
 }
 \arguments{
 \item{y}{response variable.}

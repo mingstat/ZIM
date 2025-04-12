@@ -4,8 +4,16 @@
 \alias{dzim}
 \title{Fitting Dynamic Zero-Inflated Models}
 \usage{
-dzim(formula, data, subset, na.action, weights = 1, offset = 0,
-  control = dzim.control(...), ...)
+dzim(
+  formula,
+  data,
+  subset,
+  na.action,
+  weights = 1,
+  offset = 0,
+  control = dzim.control(...),
+  ...
+)
 }
 \arguments{
 \item{formula}{an objective of class "\code{\link{formula}}".}

@@ -4,8 +4,16 @@
 \alias{zim}
 \title{Fitting Zero-Inflated Models}
 \usage{
-zim(formula, data, subset, na.action, weights = 1, offset = 0,
-  control = zim.control(...), ...)
+zim(
+  formula,
+  data,
+  subset,
+  na.action,
+  weights = 1,
+  offset = 0,
+  control = zim.control(...),
+  ...
+)
 }
 \arguments{
 \item{formula}{an objective of class "\code{\link{formula}}".}
