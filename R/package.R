@@ -10,8 +10,6 @@
 #' Fitting parameter-driven models is based on sequential Monte Carlo (SMC) methods, which are
 #' computer intensive and could take several hours to estimate the model parameters.
 #' 
-#' @docType package
-#' 
 #' @name ZIM-package
 #' 
 #' @aliases ZIM
