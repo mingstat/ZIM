@@ -15,7 +15,7 @@ Description: Analyze count time series with excess zeros.
     with independent data under the zero-inflated Poisson (ZIP) or zero-inflated negative binomial (ZINB) 
     assumption. Besides, the package contains some miscellaneous functions to compute density, distribution, 
     quantile, and generate random numbers from ZIP and ZINB distributions.
-URL: https://github.com/mingstat/ZIM
+URL: https://github.com/mingstat/ZIM, https://mingstat.github.io/ZIM/
 BugReports: https://github.com/mingstat/ZIM/issues
 License: GPL-3
 Encoding: UTF-8
