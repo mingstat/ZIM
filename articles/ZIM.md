@@ -1,0 +1,92 @@
+# Introduction to ZIM
+
+``` r
+
+library(ZIM)
+```
+
+``` r
+
+data(syph)
+count <- syph$a33
+count.lag1 <- bshift(count > 0)
+trend <- 1:length(count) / 1000
+```
+
+``` r
+
+plot(ts(count), xlab = "Week", ylab = "Number of Syphilis Cases",
+     main = "Maryland (2007 - 2010)", type = "o", pch = 20, las = 1)
+table(count)
+```
+
+## Observation-Driven Models
+
+### ZIP Autoregression
+
+We first fit a ZIP autoregression with an AR(1) correlation structure.
+The linear trend is included in both the log-linear and logistic parts
+of the model.
+
+``` r
+
+m1 <- zim(count ~ count.lag1 + trend | trend)
+m1
+```
+
+The EM-NR algorithm is used as the default algorithm in the zim
+function.
+
+### ZINB Autoregression
+
+As suggested by the score test, we next fit a ZINB autoregression, with
+all the other components remaining the same as in the ZIP
+autoregression.
+
+``` r
+
+m2 <- zim(count ~ count.lag1 + trend | trend, dist = "zinb")
+m2
+```
+
+The AIC and TIC suggest a marginal improvement when the ZINB
+autoregression is used. However, the BIC values for the ZIP and ZINB
+autoregressions are not distinguishable. This should not be surprising
+as BIC tends to penalize more for complexity.
+
+## Parameter-Driven Models
+
+### Dynamic ZIP Model
+
+We now fit a dynamic ZIP model to the syphilis data. The trend is
+included as a deterministic covariate in the log-linear model. The
+zero-inflation parameter is assumed to be constant over time.
+
+``` r
+
+set.seed(123)
+system.time(m3 <- dzim(count ~ trend, dist = "zip", N = 200, R = 200, niter = 100))
+m3
+```
+
+``` r
+
+dzim.plot(m3)
+```
+
+### Dynamic ZINB Model
+
+We next fit a dynamic ZINB model to see whether a need remains for the
+NB dispersion parameter.
+
+``` r
+
+set.seed(123)
+system.time(m4 <- dzim(count ~ trend, dist = "zinb", N = 200, R = 200, niter = 100))
+m4
+```
+
+``` r
+
+dzim.plot(m4)
+```

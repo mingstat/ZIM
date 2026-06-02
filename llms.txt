@@ -1,0 +1,107 @@
+# Zero-Inflated Models
+
+[![CRAN Status
+Badge](http://www.r-pkg.org/badges/version/ZIM)](https://cran.r-project.org/package=ZIM)
+[![CRAN Downloads
+Total](https://cranlogs.r-pkg.org/badges/grand-total/ZIM)](https://cran.r-project.org/package=ZIM)
+
+## Overview
+
+Analyze count time series with excess zeros. Two types of statistical
+models are supported: Markov regression by Yang et al. (2013)
+\<[doi:10.1016/j.stamet.2013.02.001](https://doi.org/10.1016/j.stamet.2013.02.001)\>
+and state-space models by Yang et al. (2015)
+\<[doi:10.1177/1471082X14535530](https://doi.org/10.1177/1471082X14535530)\>.
+They are also known as observation-driven and parameter-driven models
+respectively in the time series literature. The functions used for
+Markov regression or observation-driven models can also be used to fit
+ordinary regression models with independent data under the zero-inflated
+Poisson (ZIP) or zero-inflated negative binomial (ZINB) assumption.
+Besides, the package contains some miscellaneous functions to compute
+density, distribution, quantile, and generate random numbers from ZIP
+and ZINB distributions.
+
+## Installation
+
+### Stable Version
+
+Install stable version from CRAN:
+
+``` r
+
+install.packages("ZIM")
+```
+
+### Development Version
+
+Install development version from GitHub:
+
+``` r
+
+# install.packages("remotes")
+remotes::install_github("mingstat/ZIM")
+```
+
+## References
+
+- M Yang, GKD Zamba, JE Cavanaugh. Markov regression models for count
+  time series with excess zeros: A partial likelihood approach.
+  *Statistical Methodology*, 2013, 14:26–38.
+  \<[doi:10.1016/j.stamet.2013.02.001](https://doi.org/10.1016/j.stamet.2013.02.001)\>
+
+- M Yang, JE Cavanaugh, GKD Zamba. State-space models for count time
+  series with excess zeros. *Statistical Modelling*, 2015, 15(1):70–90.
+  \<[doi:10.1177/1471082X14535530](https://doi.org/10.1177/1471082X14535530)\>
+
+# Package index
+
+## All functions
+
+- [`ZIM-package`](https://mingstat.github.io/ZIM/reference/ZIM-package.md)
+  [`ZIM`](https://mingstat.github.io/ZIM/reference/ZIM-package.md) :
+  Zero-Inflated Models for Count Time Series with Excess Zeros
+- [`bshift()`](https://mingstat.github.io/ZIM/reference/bshift.md) :
+  Backshift Operator Apply the backshift operator or lag operator to a
+  time series objective.
+- [`dzinb()`](https://mingstat.github.io/ZIM/reference/dpqr-zinb.md)
+  [`pzinb()`](https://mingstat.github.io/ZIM/reference/dpqr-zinb.md)
+  [`qzinb()`](https://mingstat.github.io/ZIM/reference/dpqr-zinb.md)
+  [`rzinb()`](https://mingstat.github.io/ZIM/reference/dpqr-zinb.md) :
+  The Zero-Inflated Negative Binomial Distribution
+- [`dzip()`](https://mingstat.github.io/ZIM/reference/dpqr-zip.md)
+  [`pzip()`](https://mingstat.github.io/ZIM/reference/dpqr-zip.md)
+  [`qzip()`](https://mingstat.github.io/ZIM/reference/dpqr-zip.md)
+  [`rzip()`](https://mingstat.github.io/ZIM/reference/dpqr-zip.md) : The
+  Zero-Inflated Poisson Distribution
+- [`dzim()`](https://mingstat.github.io/ZIM/reference/dzim.md) : Fitting
+  Dynamic Zero-Inflated Models
+- [`dzim.control()`](https://mingstat.github.io/ZIM/reference/dzim.control.md)
+  : Auxiliary for Controlling DZIM Fitting
+- [`dzim.filter()`](https://mingstat.github.io/ZIM/reference/dzim.filter.md)
+  : Particle Filtering for DZIM
+- [`dzim.fit()`](https://mingstat.github.io/ZIM/reference/dzim.fit.md) :
+  Fitter Function for Dynamic Zero-Inflated Models
+- [`dzim.plot()`](https://mingstat.github.io/ZIM/reference/dzim.plot.md)
+  : Trace Plots from DZIM
+- [`dzim.sim()`](https://mingstat.github.io/ZIM/reference/dzim.sim.md) :
+  Simulate Data from DZIM
+- [`dzim.smooth()`](https://mingstat.github.io/ZIM/reference/dzim.smooth.md)
+  : Particle Smoothing for DZIM
+- [`injury`](https://mingstat.github.io/ZIM/reference/injury.md) :
+  Example: Injury Series from Occupational Health
+- [`pvalue()`](https://mingstat.github.io/ZIM/reference/pvalue.md) :
+  Function to Compute P-value.
+- [`syph`](https://mingstat.github.io/ZIM/reference/syph.md) : Example:
+  Syphilis Series
+- [`zim()`](https://mingstat.github.io/ZIM/reference/zim.md) : Fitting
+  Zero-Inflated Models
+- [`zim.control()`](https://mingstat.github.io/ZIM/reference/zim.control.md)
+  : Auxiliary for Controlling ZIM Fitting
+- [`zim.fit()`](https://mingstat.github.io/ZIM/reference/zim.fit.md) :
+  Fitter Function for Zero-Inflated Models
+
+# Articles
+
+### All vignettes
+
+- [Introduction to ZIM](https://mingstat.github.io/ZIM/articles/ZIM.md):
