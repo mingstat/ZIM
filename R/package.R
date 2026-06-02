@@ -145,7 +145,7 @@ NULL
 #' 
 #' @note C.N.M.I.: Commonwealth of Northern Mariana Islands.
 #' 
-#' @source CDC Morbidity and Mortality Weekly Report (\url{http://www.cdc.gov/MMWR/}).
+#' @source CDC Morbidity and Mortality Weekly Report (\url{https://www.cdc.gov/MMWR/}).
 #' 
 #' @examples
 #' data(syph)

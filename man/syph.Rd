@@ -78,7 +78,7 @@ A data frame with 209 observations on the following 69 variables.
 \code{a67}  \tab U.S. Virgin Islands}
 }
 \source{
-CDC Morbidity and Mortality Weekly Report (\url{http://www.cdc.gov/MMWR/}).
+CDC Morbidity and Mortality Weekly Report (\url{https://www.cdc.gov/MMWR/}).
 }
 \description{
 Weekly number of syphilis cases in the United States from 2007 to 2010.
