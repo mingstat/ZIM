@@ -80,7 +80,7 @@ A data frame with 209 observations on the following 69 variables.
 
 ## Source
 
-CDC Morbidity and Mortality Weekly Report (<http://www.cdc.gov/MMWR/>).
+CDC Morbidity and Mortality Weekly Report (<https://www.cdc.gov/MMWR/>).
 
 ## Note
 
