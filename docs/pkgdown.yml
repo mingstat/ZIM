@@ -1,6 +1,0 @@
-pandoc: 3.6.3
-pkgdown: 2.1.1
-pkgdown_sha: ~
-articles:
-  ZIM: ZIM.html
-last_built: 2025-04-12T04:01Z
