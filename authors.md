@@ -11,7 +11,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/mingstat/ZIM/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/mingstat/ZIM/blob/v1.1.2/DESCRIPTION)
 
 Yang M, Zamba G, Cavanaugh J (2026). *ZIM: Zero-Inflated Models for
 Count Time Series with Excess Zeros*. R package version 1.1.2,
